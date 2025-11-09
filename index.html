@@ -1,281 +1,339 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React.js & Next.js App Router - Complete Guide</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-        
-        .page {
-            padding: 60px 80px;
-            min-height: 100vh;
-            page-break-after: always;
-        }
-        
-        .cover {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .cover h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-        
-        .cover h2 {
-            font-size: 2em;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-        
-        .cover .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-        
-        h1 {
-            color: #667eea;
-            font-size: 2.5em;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #667eea;
-            padding-bottom: 15px;
-        }
-        
-        h2 {
-            color: #764ba2;
-            font-size: 2em;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        
-        h3 {
-            color: #555;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        
-        h4 {
-            color: #666;
-            font-size: 1.2em;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            text-align: justify;
-        }
-        
-        code {
-            background: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9em;
-            color: #e83e8c;
-        }
-        
-        pre {
-            background: #282c34;
-            color: #abb2bf;
-            padding: 20px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85em;
-            line-height: 1.6;
-        }
-        
-        .example {
-            background: #e8f4f8;
-            border-left: 4px solid #667eea;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .question {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        .answer {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            margin: 15px 0 30px 0;
-            border-radius: 4px;
-        }
-        
-        .key-point {
-            background: #f8d7da;
-            border-left: 4px solid #dc3545;
-            padding: 15px;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        ul, ol {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin-bottom: 10px;
-        }
-        
-        .toc {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        
-        .toc h2 {
-            margin-top: 0;
-        }
-        
-        .toc ul {
-            list-style: none;
-            margin-left: 0;
-        }
-        
-        .toc li {
-            padding: 8px 0;
-            border-bottom: 1px solid #dee2e6;
-        }
-        
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", serif;
+        line-height: 1.8;
+        color: #2c3e50;
+        background: #f8f9fa;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .page {
+        padding: 60px 80px;
+        min-height: 100vh;
+        page-break-after: always;
+      }
+
+      .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .cover h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .cover h2 {
+        font-size: 2em;
+        font-weight: 300;
+        margin-bottom: 40px;
+      }
+
+      .cover .subtitle {
+        font-size: 1.2em;
+        opacity: 0.9;
+      }
+
+      h1 {
+        color: #667eea;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        border-bottom: 4px solid #667eea;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        color: #764ba2;
+        font-size: 2em;
+        margin-top: 40px;
+        margin-bottom: 20px;
+      }
+
+      h3 {
+        color: #555;
+        font-size: 1.5em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      h4 {
+        color: #666;
+        font-size: 1.2em;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      code {
+        background: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9em;
+        color: #e83e8c;
+      }
+
+      pre {
+        background: #282c34;
+        color: #abb2bf;
+        padding: 20px;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin: 20px 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.85em;
+        line-height: 1.6;
+      }
+
+      .example {
+        background: #e8f4f8;
+        border-left: 4px solid #667eea;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 4px;
+      }
+
+      .question {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+      }
+
+      .answer {
+        background: #d4edda;
+        border-left: 4px solid #28a745;
+        padding: 15px;
+        margin: 15px 0 30px 0;
+        border-radius: 4px;
+      }
+
+      .key-point {
+        background: #f8d7da;
+        border-left: 4px solid #dc3545;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 4px;
+      }
+
+      ul,
+      ol {
+        margin: 15px 0 15px 30px;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      .toc {
+        background: #f8f9fa;
+        padding: 30px;
+        border-radius: 8px;
+        margin: 30px 0;
+      }
+
+      .toc h2 {
+        margin-top: 0;
+      }
+
+      .toc ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .toc li {
+        padding: 8px 0;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .export-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #667eea;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s;
+        z-index: 1000;
+      }
+
+      .export-btn:hover {
+        background: #5568d3;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+      }
+
+      @media print {
         .export-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #667eea;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s;
-            z-index: 1000;
+          display: none;
         }
-        
-        .export-btn:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5);
+        .page {
+          page-break-after: always;
         }
-        
-        @media print {
-            .export-btn {
-                display: none;
-            }
-            .page {
-                page-break-after: always;
-            }
-            body {
-                background: white;
-            }
+        body {
+          background: white;
         }
+      }
     </style>
-</head>
-<body>
-    <button class="export-btn" onclick="window.print()">📄 Export to PDF</button>
-    
+  </head>
+  <body>
+    <button class="export-btn" onclick="window.print()">
+      📄 Export to PDF
+    </button>
+
     <div class="container">
-        <!-- Cover Page -->
-        <div class="page cover">
-            <h1 style="color: white;">React.js & Next.js</h1>
-            <p class="subtitle">Comprehensive Guide with Examples & Interview Questions</p>
+      <!-- Cover Page -->
+      <div class="page cover">
+        <h1 style="color: white">React.js & Next.js</h1>
+        <p class="subtitle">
+          Comprehensive Guide with Examples & Interview Questions
+        </p>
+      </div>
+
+      <!-- Table of Contents -->
+      <div class="page">
+        <div class="toc">
+          <h2>Table of Contents</h2>
+          <ul>
+            <li><strong>Part 1: React.js Deep Dive</strong></li>
+            <li style="margin-left: 20px">
+              <a href="#react-intro">1. Introduction to React</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#react-core-concepts">2. Core Concepts</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#react-hooks">3. Hooks in Detail</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#react-advanced-patterns">4. Advanced Patterns</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#react-performance">5. Performance Optimization</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#react-interview">6. Interview Questions</a>
+            </li>
+
+            <li><strong>Part 2: Next.js App Router</strong></li>
+            <li style="margin-left: 20px">
+              <a href="#next-intro">1. Introduction to App Router</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#next-routing">2. Routing System</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#next-server-components">3. Server Components</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#next-data-fetching">4. Data Fetching</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#next-caching">5. Caching & Revalidation</a>
+            </li>
+            <li style="margin-left: 20px">
+              <a href="#next-interview">6. Interview Questions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PART 1: REACT.JS -->
+      <div class="page">
+        <h1>Part 1: React.js Deep Dive</h1>
+
+        <h2 id="react-intro">1. Introduction to React</h2>
+        <p>
+          React is a JavaScript library for building user interfaces, developed
+          and maintained by Meta (Facebook). It follows a component-based
+          architecture and uses a declarative programming paradigm, making it
+          easier to reason about application state and UI.
+        </p>
+
+        <h3>Core Philosophy</h3>
+        <p>React's philosophy centers around three main principles:</p>
+        <ul>
+          <li>
+            <strong>Declarative:</strong> You describe what the UI should look
+            like for a given state, and React handles the DOM updates.
+          </li>
+          <li>
+            <strong>Component-Based:</strong> Build encapsulated components that
+            manage their own state, then compose them to create complex UIs.
+          </li>
+          <li>
+            <strong>Learn Once, Write Anywhere:</strong> React doesn't make
+            assumptions about your tech stack, allowing integration with
+            existing codebases.
+          </li>
+        </ul>
+
+        <h3>Virtual DOM</h3>
+        <p>
+          The Virtual DOM is React's secret weapon for performance. Instead of
+          directly manipulating the browser's DOM (which is slow), React
+          maintains an in-memory representation of the UI.
+        </p>
+
+        <div class="example">
+          <h4>How Virtual DOM Works:</h4>
+          <ol>
+            <li>When state changes, React creates a new Virtual DOM tree</li>
+            <li>
+              React compares this new tree with the previous one (diffing)
+            </li>
+            <li>React calculates the minimal set of changes needed</li>
+            <li>
+              React updates only those specific parts in the real DOM
+              (reconciliation)
+            </li>
+          </ol>
         </div>
 
-        <!-- Table of Contents -->
-        <div class="page">
-            <div class="toc">
-                <h2>Table of Contents</h2>
-                <ul>
-                    <li><strong>Part 1: React.js Deep Dive</strong></li>
-                    <li style="margin-left: 20px;">1. Introduction to React</li>
-                    <li style="margin-left: 20px;">2. Core Concepts</li>
-                    <li style="margin-left: 20px;">3. Hooks in Detail</li>
-                    <li style="margin-left: 20px;">4. Advanced Patterns</li>
-                    <li style="margin-left: 20px;">5. Performance Optimization</li>
-                    <li style="margin-left: 20px;">6. Interview Questions</li>
-                    <li><strong>Part 2: Next.js App Router</strong></li>
-                    <li style="margin-left: 20px;">1. Introduction to App Router</li>
-                    <li style="margin-left: 20px;">2. Routing System</li>
-                    <li style="margin-left: 20px;">3. Server Components</li>
-                    <li style="margin-left: 20px;">4. Data Fetching</li>
-                    <li style="margin-left: 20px;">5. Caching & Revalidation</li>
-                    <li style="margin-left: 20px;">6. Interview Questions</li>
-                </ul>
-            </div>
-        </div>
+        <h2 id="react-core-concepts">2. Core Concepts</h2>
 
-        <!-- PART 1: REACT.JS -->
-        <div class="page">
-            <h1>Part 1: React.js Deep Dive</h1>
-            
-            <h2>1. Introduction to React</h2>
-            <p>React is a JavaScript library for building user interfaces, developed and maintained by Meta (Facebook). It follows a component-based architecture and uses a declarative programming paradigm, making it easier to reason about application state and UI.</p>
-            
-            <h3>Core Philosophy</h3>
-            <p>React's philosophy centers around three main principles:</p>
-            <ul>
-                <li><strong>Declarative:</strong> You describe what the UI should look like for a given state, and React handles the DOM updates.</li>
-                <li><strong>Component-Based:</strong> Build encapsulated components that manage their own state, then compose them to create complex UIs.</li>
-                <li><strong>Learn Once, Write Anywhere:</strong> React doesn't make assumptions about your tech stack, allowing integration with existing codebases.</li>
-            </ul>
+        <h3>2.1 JSX (JavaScript XML)</h3>
+        <p>
+          JSX is a syntax extension that allows you to write HTML-like code in
+          JavaScript. It's not required for React, but it makes code more
+          readable and expressive.
+        </p>
 
-            <h3>Virtual DOM</h3>
-            <p>The Virtual DOM is React's secret weapon for performance. Instead of directly manipulating the browser's DOM (which is slow), React maintains an in-memory representation of the UI.</p>
-            
-            <div class="example">
-                <h4>How Virtual DOM Works:</h4>
-                <ol>
-                    <li>When state changes, React creates a new Virtual DOM tree</li>
-                    <li>React compares this new tree with the previous one (diffing)</li>
-                    <li>React calculates the minimal set of changes needed</li>
-                    <li>React updates only those specific parts in the real DOM (reconciliation)</li>
-                </ol>
-            </div>
-
-            <h2>2. Core Concepts</h2>
-            
-            <h3>2.1 JSX (JavaScript XML)</h3>
-            <p>JSX is a syntax extension that allows you to write HTML-like code in JavaScript. It's not required for React, but it makes code more readable and expressive.</p>
-
-<pre>
+        <pre>
 // JSX Example
 const Welcome = ({ name }) => {
   return (
@@ -295,12 +353,17 @@ const Welcome = ({ name }) => {
     React.createElement('p', null, 'Welcome to React')
   );
 };
-</pre>
+</pre
+        >
 
-            <h3>2.2 Components</h3>
-            <p>Components are the building blocks of React applications. There are two types: functional and class components (functional are now preferred).</p>
+        <h3>2.2 Components</h3>
+        <p>
+          Components are the building blocks of React applications. There are
+          two types: functional and class components (functional are now
+          preferred).
+        </p>
 
-<pre>
+        <pre>
 // Functional Component
 function UserProfile({ user }) {
   return (
@@ -325,14 +388,18 @@ class UserProfile extends React.Component {
     );
   }
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>2.3 Props</h3>
-            <p>Props (properties) are read-only inputs passed from parent to child components. They enable component reusability and composition.</p>
+      <div class="page">
+        <h3>2.3 Props</h3>
+        <p>
+          Props (properties) are read-only inputs passed from parent to child
+          components. They enable component reusability and composition.
+        </p>
 
-<pre>
+        <pre>
 // Parent Component
 function App() {
   const users = [
@@ -374,12 +441,16 @@ function Button({ text = 'Click me', onClick, variant = 'primary' }) {
     &lt;/button&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>2.4 State</h3>
-            <p>State is mutable data that belongs to a component. When state changes, React re-renders the component and its children.</p>
+        <h3>2.4 State</h3>
+        <p>
+          State is mutable data that belongs to a component. When state changes,
+          React re-renders the component and its children.
+        </p>
 
-<pre>
+        <pre>
 import { useState } from 'react';
 
 function Counter() {
@@ -404,12 +475,16 @@ function Counter() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <div class="key-point">
-                <h4>Important: State Updates are Asynchronous</h4>
-                <p>React batches state updates for performance. If you need to update state based on previous state, use the functional form:</p>
-<pre>
+        <div class="key-point">
+          <h4>Important: State Updates are Asynchronous</h4>
+          <p>
+            React batches state updates for performance. If you need to update
+            state based on previous state, use the functional form:
+          </p>
+          <pre>
 // ❌ Wrong - may not work as expected
 setCount(count + 1);
 setCount(count + 1); // Still adds only 1
@@ -417,15 +492,18 @@ setCount(count + 1); // Still adds only 1
 // ✅ Correct
 setCount(prevCount =&gt; prevCount + 1);
 setCount(prevCount =&gt; prevCount + 1); // Adds 2
-</pre>
-            </div>
+</pre
+          >
+        </div>
 
-            <h2>3. Hooks in Detail</h2>
-            
-            <h3>3.1 useState</h3>
-            <p>useState is the most fundamental hook for managing component state.</p>
+        <h2 id="react-hooks">3. Hooks in Detail</h2>
 
-<pre>
+        <h3>3.1 useState</h3>
+        <p>
+          useState is the most fundamental hook for managing component state.
+        </p>
+
+        <pre>
 function FormExample() {
   const [formData, setFormData] = useState({
     username: '',
@@ -472,14 +550,18 @@ function FormExample() {
     &lt;/form&gt;
   );
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>3.2 useEffect</h3>
-            <p>useEffect handles side effects like data fetching, subscriptions, and manual DOM manipulation.</p>
+      <div class="page">
+        <h3>3.2 useEffect</h3>
+        <p>
+          useEffect handles side effects like data fetching, subscriptions, and
+          manual DOM manipulation.
+        </p>
 
-<pre>
+        <pre>
 import { useState, useEffect } from 'react';
 
 function UserData({ userId }) {
@@ -531,21 +613,31 @@ function UserData({ userId }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <div class="example">
-                <h4>useEffect Dependency Array Rules:</h4>
-                <ul>
-                    <li><strong>No array:</strong> Runs after every render</li>
-                    <li><strong>Empty array []:</strong> Runs only once after initial render</li>
-                    <li><strong>With dependencies [a, b]:</strong> Runs when a or b changes</li>
-                </ul>
-            </div>
+        <div class="example">
+          <h4>useEffect Dependency Array Rules:</h4>
+          <ul>
+            <li><strong>No array:</strong> Runs after every render</li>
+            <li>
+              <strong>Empty array []:</strong> Runs only once after initial
+              render
+            </li>
+            <li>
+              <strong>With dependencies [a, b]:</strong> Runs when a or b
+              changes
+            </li>
+          </ul>
+        </div>
 
-            <h3>3.3 useContext</h3>
-            <p>useContext provides a way to pass data through the component tree without manually passing props at every level.</p>
+        <h3>3.3 useContext</h3>
+        <p>
+          useContext provides a way to pass data through the component tree
+          without manually passing props at every level.
+        </p>
 
-<pre>
+        <pre>
 import { createContext, useContext, useState } from 'react';
 
 // Create context
@@ -599,12 +691,16 @@ function App() {
     &lt;/ThemeProvider&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>3.4 useReducer</h3>
-            <p>useReducer is an alternative to useState for managing complex state logic.</p>
+        <h3>3.4 useReducer</h3>
+        <p>
+          useReducer is an alternative to useState for managing complex state
+          logic.
+        </p>
 
-<pre>
+        <pre>
 import { useReducer } from 'react';
 
 // Define action types
@@ -687,14 +783,18 @@ function TodoApp() {
     &lt;/div&gt;
   );
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>3.5 useRef</h3>
-            <p>useRef creates a mutable reference that persists across renders without causing re-renders when changed.</p>
+      <div class="page">
+        <h3>3.5 useRef</h3>
+        <p>
+          useRef creates a mutable reference that persists across renders
+          without causing re-renders when changed.
+        </p>
 
-<pre>
+        <pre>
 import { useRef, useEffect } from 'react';
 
 function TextInput() {
@@ -743,12 +843,16 @@ function Counter() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>3.6 useMemo</h3>
-            <p>useMemo memoizes expensive computations, only recalculating when dependencies change.</p>
+        <h3>3.6 useMemo</h3>
+        <p>
+          useMemo memoizes expensive computations, only recalculating when
+          dependencies change.
+        </p>
 
-<pre>
+        <pre>
 import { useMemo, useState } from 'react';
 
 function ExpensiveComponent({ items, filter }) {
@@ -788,12 +892,16 @@ function ExpensiveComponent({ items, filter }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>3.7 useCallback</h3>
-            <p>useCallback memoizes function references, preventing unnecessary re-renders of child components.</p>
+        <h3>3.7 useCallback</h3>
+        <p>
+          useCallback memoizes function references, preventing unnecessary
+          re-renders of child components.
+        </p>
 
-<pre>
+        <pre>
 import { useCallback, memo, useState } from 'react';
 
 // Child component wrapped in memo
@@ -831,26 +939,33 @@ function Parent() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <div class="key-point">
-                <h4>When to Use useMemo vs useCallback?</h4>
-                <ul>
-                    <li><strong>useMemo:</strong> Memoize computed values (numbers, strings, arrays, objects)</li>
-                    <li><strong>useCallback:</strong> Memoize function references</li>
-                    <li>Both are optimization tools - don't use them prematurely</li>
-                    <li>Profile your app to identify actual performance bottlenecks</li>
-                </ul>
-            </div>
+        <div class="key-point">
+          <h4>When to Use useMemo vs useCallback?</h4>
+          <ul>
+            <li>
+              <strong>useMemo:</strong> Memoize computed values (numbers,
+              strings, arrays, objects)
+            </li>
+            <li><strong>useCallback:</strong> Memoize function references</li>
+            <li>Both are optimization tools - don't use them prematurely</li>
+            <li>Profile your app to identify actual performance bottlenecks</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="page">
-            <h2>4. Advanced Patterns</h2>
-            
-            <h3>4.1 Custom Hooks</h3>
-            <p>Custom hooks are reusable functions that can use React hooks internally. They must start with "use".</p>
+      <div class="page">
+        <h2 id="react-advanced-patterns">4. Advanced Patterns</h2>
 
-<pre>
+        <h3>4.1 Custom Hooks</h3>
+        <p>
+          Custom hooks are reusable functions that can use React hooks
+          internally. They must start with "use".
+        </p>
+
+        <pre>
 // useLocalStorage hook
 function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(() => {
@@ -944,12 +1059,16 @@ function UserList() {
     &lt;/ul&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>4.2 Higher-Order Components (HOC)</h3>
-            <p>HOCs are functions that take a component and return a new component with additional props or behavior.</p>
+        <h3>4.2 Higher-Order Components (HOC)</h3>
+        <p>
+          HOCs are functions that take a component and return a new component
+          with additional props or behavior.
+        </p>
 
-<pre>
+        <pre>
 // HOC for adding loading state
 function withLoading(Component) {
   return function WithLoadingComponent({ isLoading, ...props }) {
@@ -976,12 +1095,16 @@ function withAuth(Component) {
 }
 
 const ProtectedDashboard = withAuth(Dashboard);
-</pre>
+</pre
+        >
 
-            <h3>4.3 Render Props Pattern</h3>
-            <p>Render props is a technique for sharing code between components using a prop whose value is a function.</p>
+        <h3>4.3 Render Props Pattern</h3>
+        <p>
+          Render props is a technique for sharing code between components using
+          a prop whose value is a function.
+        </p>
 
-<pre>
+        <pre>
 function DataFetcher({ url, render }) {
   const { data, loading, error } = useFetch(url);
 
@@ -1028,14 +1151,18 @@ function MouseTracker({ children }) {
     &lt;p&gt;Mouse position: ({x}, {y})&lt;/p&gt;
   )}
 &lt;/MouseTracker&gt;
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>4.4 Compound Components</h3>
-            <p>Compound components work together to form a complete UI component, sharing implicit state.</p>
+      <div class="page">
+        <h3>4.4 Compound Components</h3>
+        <p>
+          Compound components work together to form a complete UI component,
+          sharing implicit state.
+        </p>
 
-<pre>
+        <pre>
 // Create a context for shared state
 const TabsContext = createContext();
 
@@ -1102,14 +1229,18 @@ function App() {
     &lt;/Tabs&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h2>5. Performance Optimization</h2>
+        <h2 id="react-performance">5. Performance Optimization</h2>
 
-            <h3>5.1 React.memo</h3>
-            <p>React.memo is a higher-order component that memoizes the result, preventing unnecessary re-renders.</p>
+        <h3>5.1 React.memo</h3>
+        <p>
+          React.memo is a higher-order component that memoizes the result,
+          preventing unnecessary re-renders.
+        </p>
 
-<pre>
+        <pre>
 // Without memo - re-renders every time parent renders
 function ListItem({ item }) {
   console.log('ListItem rendered');
@@ -1133,12 +1264,16 @@ const ListItemWithCustomCompare = memo(
            prevProps.item.price === nextProps.item.price;
   }
 );
-</pre>
+</pre
+        >
 
-            <h3>5.2 Code Splitting with React.lazy</h3>
-            <p>React.lazy enables dynamic imports for code splitting, reducing initial bundle size.</p>
+        <h3>5.2 Code Splitting with React.lazy</h3>
+        <p>
+          React.lazy enables dynamic imports for code splitting, reducing
+          initial bundle size.
+        </p>
 
-<pre>
+        <pre>
 import { lazy, Suspense } from 'react';
 
 // Lazy load components
@@ -1167,12 +1302,15 @@ const { UserProfile } = lazy(() =&gt;
     default: { UserProfile: module.UserProfile }
   }))
 );
-</pre>
+</pre
+        >
 
-            <h3>5.3 Virtualization</h3>
-            <p>For rendering large lists, virtualization only renders visible items.</p>
+        <h3>5.3 Virtualization</h3>
+        <p>
+          For rendering large lists, virtualization only renders visible items.
+        </p>
 
-<pre>
+        <pre>
 // Simple virtualization implementation
 function VirtualList({ items, itemHeight, containerHeight }) {
   const [scrollTop, setScrollTop] = useState(0);
@@ -1230,14 +1368,15 @@ function App() {
     &lt;/FixedSizeList&gt;
   );
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>5.4 Debouncing and Throttling</h3>
-            <p>Optimize expensive operations by limiting how often they execute.</p>
+      <div class="page">
+        <h3>5.4 Debouncing and Throttling</h3>
+        <p>Optimize expensive operations by limiting how often they execute.</p>
 
-<pre>
+        <pre>
 // Custom debounce hook
 function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -1304,31 +1443,51 @@ function ScrollComponent() {
 
   return &lt;div&gt;Scroll position: {scrollPosition}&lt;/div&gt;;
 }
-</pre>
+</pre
+        >
 
-            <h2>6. React Interview Questions</h2>
+        <h2 id="react-interview">6. React Interview Questions</h2>
 
-            <div class="question">
-                <h4>Q1: What is the Virtual DOM and how does React use it?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> The Virtual DOM is a lightweight JavaScript representation of the actual DOM. React maintains this in-memory structure to optimize rendering.</p>
-                <p><strong>Process:</strong></p>
-                <ol>
-                    <li>When state changes, React creates a new Virtual DOM tree</li>
-                    <li>React compares it with the previous Virtual DOM (diffing/reconciliation)</li>
-                    <li>React calculates the minimal set of changes needed</li>
-                    <li>React updates only those specific parts in the real DOM (batched updates)</li>
-                </ol>
-                <p><strong>Benefits:</strong> Minimizes expensive DOM operations, enables efficient updates, and improves performance for complex UIs.</p>
-            </div>
+        <div class="question">
+          <h4>Q1: What is the Virtual DOM and how does React use it?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> The Virtual DOM is a lightweight JavaScript
+            representation of the actual DOM. React maintains this in-memory
+            structure to optimize rendering.
+          </p>
+          <p><strong>Process:</strong></p>
+          <ol>
+            <li>When state changes, React creates a new Virtual DOM tree</li>
+            <li>
+              React compares it with the previous Virtual DOM
+              (diffing/reconciliation)
+            </li>
+            <li>React calculates the minimal set of changes needed</li>
+            <li>
+              React updates only those specific parts in the real DOM (batched
+              updates)
+            </li>
+          </ol>
+          <p>
+            <strong>Benefits:</strong> Minimizes expensive DOM operations,
+            enables efficient updates, and improves performance for complex UIs.
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q2: Explain the difference between controlled and uncontrolled components.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Controlled Components:</strong> Form data is handled by React state. The component's value is controlled by React.</p>
-<pre>
+        <div class="question">
+          <h4>
+            Q2: Explain the difference between controlled and uncontrolled
+            components.
+          </h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Controlled Components:</strong> Form data is handled by
+            React state. The component's value is controlled by React.
+          </p>
+          <pre>
 function ControlledInput() {
   const [value, setValue] = useState('');
   return (
@@ -1338,9 +1497,13 @@ function ControlledInput() {
     /&gt;
   );
 }
-</pre>
-                <p><strong>Uncontrolled Components:</strong> Form data is handled by the DOM itself. Access values using refs.</p>
-<pre>
+</pre
+          >
+          <p>
+            <strong>Uncontrolled Components:</strong> Form data is handled by
+            the DOM itself. Access values using refs.
+          </p>
+          <pre>
 function UncontrolledInput() {
   const inputRef = useRef();
   const handleSubmit = () =&gt; {
@@ -1348,16 +1511,25 @@ function UncontrolledInput() {
   };
   return &lt;input ref={inputRef} /&gt;;
 }
-</pre>
-                <p><strong>When to use:</strong> Controlled for most cases (validation, dynamic updates). Uncontrolled for file inputs or integrating with non-React code.</p>
-            </div>
+</pre
+          >
+          <p>
+            <strong>When to use:</strong> Controlled for most cases (validation,
+            dynamic updates). Uncontrolled for file inputs or integrating with
+            non-React code.
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q3: What are React keys and why are they important?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Keys help React identify which items have changed, been added, or removed in lists. They should be stable, unique identifiers.</p>
-<pre>
+        <div class="question">
+          <h4>Q3: What are React keys and why are they important?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Keys help React identify which items have
+            changed, been added, or removed in lists. They should be stable,
+            unique identifiers.
+          </p>
+          <pre>
 // ❌ Bad - using index
 {items.map((item, index) =&gt; (
   &lt;div key={index}&gt;{item.name}&lt;/div&gt;
@@ -1367,63 +1539,94 @@ function UncontrolledInput() {
 {items.map(item =&gt; (
   &lt;div key={item.id}&gt;{item.name}&lt;/div&gt;
 ))}
-</pre>
-                <p><strong>Why important:</strong></p>
-                <ul>
-                    <li>Helps React optimize re-renders by reusing DOM elements</li>
-                    <li>Prevents bugs when list order changes</li>
-                    <li>Maintains component state correctly</li>
-                    <li>Using index as key can cause issues with dynamic lists</li>
-                </ul>
-            </div>
+</pre
+          >
+          <p><strong>Why important:</strong></p>
+          <ul>
+            <li>Helps React optimize re-renders by reusing DOM elements</li>
+            <li>Prevents bugs when list order changes</li>
+            <li>Maintains component state correctly</li>
+            <li>Using index as key can cause issues with dynamic lists</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="page">
+        <div class="question">
+          <h4>Q4: Explain React's reconciliation algorithm.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Reconciliation is the algorithm React uses
+            to diff one tree with another to determine what needs to be changed.
+          </p>
+          <p><strong>Key principles:</strong></p>
+          <ul>
+            <li>
+              <strong>Different element types:</strong> React tears down the old
+              tree and builds new one
+            </li>
+            <li>
+              <strong>Same element type:</strong> React keeps the same DOM node
+              and updates changed attributes
+            </li>
+            <li>
+              <strong>Keys:</strong> React uses keys to match children in the
+              original tree with children in the subsequent tree
+            </li>
+            <li>
+              <strong>Breadth-first:</strong> Compares elements level by level
+            </li>
+          </ul>
+          <p>
+            <strong>Time complexity:</strong> O(n) instead of O(n³) for
+            traditional tree diff algorithms
+          </p>
         </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q4: Explain React's reconciliation algorithm.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Reconciliation is the algorithm React uses to diff one tree with another to determine what needs to be changed.</p>
-                <p><strong>Key principles:</strong></p>
-                <ul>
-                    <li><strong>Different element types:</strong> React tears down the old tree and builds new one</li>
-                    <li><strong>Same element type:</strong> React keeps the same DOM node and updates changed attributes</li>
-                    <li><strong>Keys:</strong> React uses keys to match children in the original tree with children in the subsequent tree</li>
-                    <li><strong>Breadth-first:</strong> Compares elements level by level</li>
-                </ul>
-                <p><strong>Time complexity:</strong> O(n) instead of O(n³) for traditional tree diff algorithms</p>
-            </div>
-
-            <div class="question">
-                <h4>Q5: What is the difference between useMemo and useCallback?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>useMemo:</strong> Memoizes a computed value</p>
-<pre>
+        <div class="question">
+          <h4>Q5: What is the difference between useMemo and useCallback?</h4>
+        </div>
+        <div class="answer">
+          <p><strong>useMemo:</strong> Memoizes a computed value</p>
+          <pre>
 const expensiveValue = useMemo(() =&gt; {
   return computeExpensiveValue(a, b);
 }, [a, b]);
-</pre>
-                <p><strong>useCallback:</strong> Memoizes a function definition</p>
-<pre>
+</pre
+          >
+          <p><strong>useCallback:</strong> Memoizes a function definition</p>
+          <pre>
 const memoizedCallback = useCallback(() =&gt; {
   doSomething(a, b);
 }, [a, b]);
-</pre>
-                <p><strong>Relationship:</strong> <code>useCallback(fn, deps)</code> is equivalent to <code>useMemo(() => fn, deps)</code></p>
-                <p><strong>When to use:</strong></p>
-                <ul>
-                    <li>useMemo: Expensive calculations, derived data</li>
-                    <li>useCallback: Passing callbacks to optimized child components that rely on reference equality</li>
-                </ul>
-            </div>
+</pre
+          >
+          <p>
+            <strong>Relationship:</strong> <code>useCallback(fn, deps)</code> is
+            equivalent to <code>useMemo(() => fn, deps)</code>
+          </p>
+          <p><strong>When to use:</strong></p>
+          <ul>
+            <li>useMemo: Expensive calculations, derived data</li>
+            <li>
+              useCallback: Passing callbacks to optimized child components that
+              rely on reference equality
+            </li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q6: Explain closure issues in useEffect and how to solve them.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Problem:</strong> Functions inside useEffect capture values from when the effect was created (stale closures).</p>
-<pre>
+        <div class="question">
+          <h4>
+            Q6: Explain closure issues in useEffect and how to solve them.
+          </h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Problem:</strong> Functions inside useEffect capture values
+            from when the effect was created (stale closures).
+          </p>
+          <pre>
 // ❌ Bug: count is always 0 in the interval
 function Counter() {
   const [count, setCount] = useState(0);
@@ -1452,15 +1655,19 @@ useEffect(() => {
 // ✅ Solution 3: useRef for mutable values
 const countRef = useRef(count);
 countRef.current = count;
-</pre>
-            </div>
+</pre
+          >
+        </div>
 
-            <div class="question">
-                <h4>Q7: What are React Portals and when would you use them?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Portals provide a way to render children into a DOM node outside the parent component's DOM hierarchy.</p>
-<pre>
+        <div class="question">
+          <h4>Q7: What are React Portals and when would you use them?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Portals provide a way to render children
+            into a DOM node outside the parent component's DOM hierarchy.
+          </p>
+          <pre>
 import { createPortal } from 'react-dom';
 
 function Modal({ children, isOpen }) {
@@ -1475,24 +1682,32 @@ function Modal({ children, isOpen }) {
     document.getElementById('modal-root')
   );
 }
-</pre>
-                <p><strong>Use cases:</strong></p>
-                <ul>
-                    <li>Modals and dialogs</li>
-                    <li>Tooltips</li>
-                    <li>Popovers</li>
-                    <li>Notifications/Toasts</li>
-                    <li>Any component that needs to break out of overflow:hidden</li>
-                </ul>
-                <p><strong>Benefits:</strong> Event bubbling works through portals, maintains React context, avoids z-index and overflow issues.</p>
-            </div>
+</pre
+          >
+          <p><strong>Use cases:</strong></p>
+          <ul>
+            <li>Modals and dialogs</li>
+            <li>Tooltips</li>
+            <li>Popovers</li>
+            <li>Notifications/Toasts</li>
+            <li>Any component that needs to break out of overflow:hidden</li>
+          </ul>
+          <p>
+            <strong>Benefits:</strong> Event bubbling works through portals,
+            maintains React context, avoids z-index and overflow issues.
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q8: Explain Error Boundaries in React.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Error Boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI.</p>
-<pre>
+        <div class="question">
+          <h4>Q8: Explain Error Boundaries in React.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Error Boundaries are React components that
+            catch JavaScript errors anywhere in their child component tree, log
+            those errors, and display a fallback UI.
+          </p>
+          <pre>
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -1521,38 +1736,49 @@ class ErrorBoundary extends React.Component {
 &lt;ErrorBoundary&gt;
   &lt;MyComponent /&gt;
 &lt;/ErrorBoundary&gt;
-</pre>
-                <p><strong>What they DON'T catch:</strong></p>
-                <ul>
-                    <li>Event handlers (use try-catch)</li>
-                    <li>Asynchronous code</li>
-                    <li>Server-side rendering</li>
-                    <li>Errors in the error boundary itself</li>
-                </ul>
-            </div>
+</pre
+          >
+          <p><strong>What they DON'T catch:</strong></p>
+          <ul>
+            <li>Event handlers (use try-catch)</li>
+            <li>Asynchronous code</li>
+            <li>Server-side rendering</li>
+            <li>Errors in the error boundary itself</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q9: What is React Context and when should you use it?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Context provides a way to pass data through the component tree without having to pass props down manually at every level.</p>
-                <p><strong>When to use:</strong></p>
-                <ul>
-                    <li>Theme data (light/dark mode)</li>
-                    <li>User authentication state</li>
-                    <li>Preferred language</li>
-                    <li>Any data that many components need access to</li>
-                </ul>
-                <p><strong>When NOT to use:</strong></p>
-                <ul>
-                    <li>Just to avoid passing props a few levels deep (composition is better)</li>
-                    <li>High-frequency updates (causes all consumers to re-render)</li>
-                    <li>Complex state management (consider Redux, Zustand, etc.)</li>
-                </ul>
-                <p><strong>Performance tip:</strong> Split contexts to avoid unnecessary re-renders</p>
-<pre>
+      <div class="page">
+        <div class="question">
+          <h4>Q9: What is React Context and when should you use it?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Context provides a way to pass data through
+            the component tree without having to pass props down manually at
+            every level.
+          </p>
+          <p><strong>When to use:</strong></p>
+          <ul>
+            <li>Theme data (light/dark mode)</li>
+            <li>User authentication state</li>
+            <li>Preferred language</li>
+            <li>Any data that many components need access to</li>
+          </ul>
+          <p><strong>When NOT to use:</strong></p>
+          <ul>
+            <li>
+              Just to avoid passing props a few levels deep (composition is
+              better)
+            </li>
+            <li>High-frequency updates (causes all consumers to re-render)</li>
+            <li>Complex state management (consider Redux, Zustand, etc.)</li>
+          </ul>
+          <p>
+            <strong>Performance tip:</strong> Split contexts to avoid
+            unnecessary re-renders
+          </p>
+          <pre>
 // ❌ One context for everything
 const AppContext = { user, theme, settings };
 
@@ -1560,16 +1786,26 @@ const AppContext = { user, theme, settings };
 const UserContext = { user };
 const ThemeContext = { theme };
 const SettingsContext = { settings };
-</pre>
-            </div>
+</pre
+          >
+        </div>
 
-            <div class="question">
-                <h4>Q10: Explain the useLayoutEffect hook and its differences from useEffect.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>useEffect:</strong> Runs asynchronously after paint. Doesn't block browser painting.</p>
-                <p><strong>useLayoutEffect:</strong> Runs synchronously after all DOM mutations but before paint. Blocks visual updates.</p>
-<pre>
+        <div class="question">
+          <h4>
+            Q10: Explain the useLayoutEffect hook and its differences from
+            useEffect.
+          </h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>useEffect:</strong> Runs asynchronously after paint. Doesn't
+            block browser painting.
+          </p>
+          <p>
+            <strong>useLayoutEffect:</strong> Runs synchronously after all DOM
+            mutations but before paint. Blocks visual updates.
+          </p>
+          <pre>
 // Execution order:
 // 1. React updates DOM
 // 2. useLayoutEffect runs (synchronously)
@@ -1591,123 +1827,229 @@ function Component() {
 
   return &lt;div ref={ref}&gt;Content&lt;/div&gt;;
 }
-</pre>
-                <p><strong>Use cases for useLayoutEffect:</strong></p>
-                <ul>
-                    <li>DOM measurements (getBoundingClientRect)</li>
-                    <li>Synchronous DOM updates before paint</li>
-                    <li>Preventing visual flicker</li>
-                    <li>Scroll position restoration</li>
-                </ul>
-                <p><strong>Default to useEffect</strong> - only use useLayoutEffect if you see visual flickering or need DOM measurements.</p>
-            </div>
+</pre
+          >
+          <p><strong>Use cases for useLayoutEffect:</strong></p>
+          <ul>
+            <li>DOM measurements (getBoundingClientRect)</li>
+            <li>Synchronous DOM updates before paint</li>
+            <li>Preventing visual flicker</li>
+            <li>Scroll position restoration</li>
+          </ul>
+          <p>
+            <strong>Default to useEffect</strong> - only use useLayoutEffect if
+            you see visual flickering or need DOM measurements.
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q11: How does React Fiber improve React's performance?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> React Fiber is a complete rewrite of React's reconciliation algorithm introduced in React 16.</p>
-                <p><strong>Key improvements:</strong></p>
-                <ul>
-                    <li><strong>Incremental rendering:</strong> Split rendering work into chunks and spread it over multiple frames</li>
-                    <li><strong>Ability to pause/resume work:</strong> Can interrupt rendering to handle high-priority updates</li>
-                    <li><strong>Priority-based rendering:</strong> Different updates have different priorities (user input > animations > data fetching)</li>
-                    <li><strong>Concurrent rendering:</strong> Prepare multiple versions of the UI simultaneously</li>
-                </ul>
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>Better responsiveness for user interactions</li>
-                    <li>Smoother animations</li>
-                    <li>Better handling of large component trees</li>
-                    <li>Foundation for Concurrent Mode and Suspense</li>
-                </ul>
-            </div>
+        <div class="question">
+          <h4>Q11: How does React Fiber improve React's performance?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> React Fiber is a complete rewrite of
+            React's reconciliation algorithm introduced in React 16.
+          </p>
+          <p><strong>Key improvements:</strong></p>
+          <ul>
+            <li>
+              <strong>Incremental rendering:</strong> Split rendering work into
+              chunks and spread it over multiple frames
+            </li>
+            <li>
+              <strong>Ability to pause/resume work:</strong> Can interrupt
+              rendering to handle high-priority updates
+            </li>
+            <li>
+              <strong>Priority-based rendering:</strong> Different updates have
+              different priorities (user input > animations > data fetching)
+            </li>
+            <li>
+              <strong>Concurrent rendering:</strong> Prepare multiple versions
+              of the UI simultaneously
+            </li>
+          </ul>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Better responsiveness for user interactions</li>
+            <li>Smoother animations</li>
+            <li>Better handling of large component trees</li>
+            <li>Foundation for Concurrent Mode and Suspense</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q12: Explain React's Strict Mode and its benefits.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> StrictMode is a development tool that helps identify potential problems in an application.</p>
-<pre>
+        <div class="question">
+          <h4>Q12: Explain React's Strict Mode and its benefits.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> StrictMode is a development tool that helps
+            identify potential problems in an application.
+          </p>
+          <pre>
 &lt;React.StrictMode&gt;
   &lt;App /&gt;
 &lt;/React.StrictMode&gt;
-</pre>
-                <p><strong>What it does:</strong></p>
-                <ul>
-                    <li><strong>Double invocation:</strong> Renders components twice to detect side effects</li>
-                    <li><strong>Warns about deprecated APIs:</strong> Legacy lifecycle methods, findDOMNode, legacy context API</li>
-                    <li><strong>Detects unexpected side effects:</strong> In render phase, constructor, getDerivedStateFromProps</li>
-                    <li><strong>Warns about legacy ref API:</strong> String refs</li>
-                </ul>
-                <p><strong>Important:</strong> Only runs in development mode, has no effect in production.</p>
-            </div>
+</pre
+          >
+          <p><strong>What it does:</strong></p>
+          <ul>
+            <li>
+              <strong>Double invocation:</strong> Renders components twice to
+              detect side effects
+            </li>
+            <li>
+              <strong>Warns about deprecated APIs:</strong> Legacy lifecycle
+              methods, findDOMNode, legacy context API
+            </li>
+            <li>
+              <strong>Detects unexpected side effects:</strong> In render phase,
+              constructor, getDerivedStateFromProps
+            </li>
+            <li><strong>Warns about legacy ref API:</strong> String refs</li>
+          </ul>
+          <p>
+            <strong>Important:</strong> Only runs in development mode, has no
+            effect in production.
+          </p>
+        </div>
+      </div>
+
+      <!-- PART 2: NEXT.JS APP ROUTER -->
+      <div class="page">
+        <h1>Part 2: Next.js App Router Deep Dive</h1>
+
+        <h2 id="next-intro">1. Introduction to App Router</h2>
+        <p>
+          The App Router is a new paradigm in Next.js 13+ that introduces a
+          file-system based router built on React Server Components. It
+          represents a fundamental shift in how Next.js applications are
+          structured and rendered.
+        </p>
+
+        <h3>Why App Router?</h3>
+        <p>
+          The App Router was created to solve several limitations of the Pages
+          Router:
+        </p>
+        <ul>
+          <li>
+            <strong>Better data fetching:</strong> Fetch data where you need it,
+            in the component itself
+          </li>
+          <li>
+            <strong>Server Components by default:</strong> Smaller bundle sizes,
+            better performance
+          </li>
+          <li>
+            <strong>Improved layouts:</strong> Nested layouts that preserve
+            state
+          </li>
+          <li>
+            <strong>Better streaming:</strong> Progressive rendering with React
+            Suspense
+          </li>
+          <li><strong>Colocation:</strong> Keep related code together</li>
+        </ul>
+
+        <h3>App Router vs Pages Router</h3>
+        <div class="example">
+          <table style="width: 100%; border-collapse: collapse">
+            <tr>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                Feature
+              </th>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                Pages Router
+              </th>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                App Router
+              </th>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Directory</td>
+              <td style="border: 1px solid #ddd; padding: 8px">/pages</td>
+              <td style="border: 1px solid #ddd; padding: 8px">/app</td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Default</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Client Components
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Server Components
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Data Fetching
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                getServerSideProps, getStaticProps
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                async/await in components
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Layouts</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                _app.js (single layout)
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Nested layouts with layout.js
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Loading States
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Manual implementation
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                loading.js convention
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Error Handling
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">_error.js</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                error.js (per route)
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <!-- PART 2: NEXT.JS APP ROUTER -->
-        <div class="page">
-            <h1>Part 2: Next.js App Router Deep Dive</h1>
+        <h2 id="next-routing">2. Routing System</h2>
 
-            <h2>1. Introduction to App Router</h2>
-            <p>The App Router is a new paradigm in Next.js 13+ that introduces a file-system based router built on React Server Components. It represents a fundamental shift in how Next.js applications are structured and rendered.</p>
+        <h3>2.1 File-System Based Routing</h3>
+        <p>
+          The App Router uses a folder-based routing system where folders define
+          routes and special files define UI.
+        </p>
 
-            <h3>Why App Router?</h3>
-            <p>The App Router was created to solve several limitations of the Pages Router:</p>
-            <ul>
-                <li><strong>Better data fetching:</strong> Fetch data where you need it, in the component itself</li>
-                <li><strong>Server Components by default:</strong> Smaller bundle sizes, better performance</li>
-                <li><strong>Improved layouts:</strong> Nested layouts that preserve state</li>
-                <li><strong>Better streaming:</strong> Progressive rendering with React Suspense</li>
-                <li><strong>Colocation:</strong> Keep related code together</li>
-            </ul>
-
-            <h3>App Router vs Pages Router</h3>
-            <div class="example">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">Feature</th>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">Pages Router</th>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">App Router</th>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Directory</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">/pages</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">/app</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Default</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Client Components</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Server Components</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Data Fetching</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">getServerSideProps, getStaticProps</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">async/await in components</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Layouts</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">_app.js (single layout)</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Nested layouts with layout.js</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Loading States</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Manual implementation</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">loading.js convention</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Error Handling</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">_error.js</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">error.js (per route)</td>
-                    </tr>
-                </table>
-            </div>
-
-            <h2>2. Routing System</h2>
-
-            <h3>2.1 File-System Based Routing</h3>
-            <p>The App Router uses a folder-based routing system where folders define routes and special files define UI.</p>
-
-<pre>
+        <pre>
 app/
 ├── page.js                    // Route: /
 ├── layout.js                  // Root layout
@@ -1727,23 +2069,38 @@ app/
     │   └── page.js           // Route: /dashboard/settings
     └── profile/
         └── page.js           // Route: /dashboard/profile
-</pre>
+</pre
+        >
 
-            <h3>2.2 Special Files</h3>
-            <div class="example">
-                <ul>
-                    <li><strong>page.js:</strong> Makes route publicly accessible, defines the UI</li>
-                    <li><strong>layout.js:</strong> Shared UI for a segment and its children</li>
-                    <li><strong>loading.js:</strong> Loading UI wrapped in Suspense boundary</li>
-                    <li><strong>error.js:</strong> Error UI wrapped in Error boundary</li>
-                    <li><strong>not-found.js:</strong> UI for 404 errors</li>
-                    <li><strong>template.js:</strong> Re-rendered layout (doesn't preserve state)</li>
-                    <li><strong>route.js:</strong> API endpoint (Route Handler)</li>
-                </ul>
-            </div>
+        <h3>2.2 Special Files</h3>
+        <div class="example">
+          <ul>
+            <li>
+              <strong>page.js:</strong> Makes route publicly accessible, defines
+              the UI
+            </li>
+            <li>
+              <strong>layout.js:</strong> Shared UI for a segment and its
+              children
+            </li>
+            <li>
+              <strong>loading.js:</strong> Loading UI wrapped in Suspense
+              boundary
+            </li>
+            <li>
+              <strong>error.js:</strong> Error UI wrapped in Error boundary
+            </li>
+            <li><strong>not-found.js:</strong> UI for 404 errors</li>
+            <li>
+              <strong>template.js:</strong> Re-rendered layout (doesn't preserve
+              state)
+            </li>
+            <li><strong>route.js:</strong> API endpoint (Route Handler)</li>
+          </ul>
+        </div>
 
-            <h3>2.3 Page.js Example</h3>
-<pre>
+        <h3>2.3 Page.js Example</h3>
+        <pre>
 // app/page.js
 export default function HomePage() {
   return (
@@ -1769,10 +2126,11 @@ export const metadata = {
   title: 'Blog',
   description: 'Read our latest blog posts',
 };
-</pre>
+</pre
+        >
 
-            <h3>2.4 Dynamic Routes</h3>
-<pre>
+        <h3>2.4 Dynamic Routes</h3>
+        <pre>
 // app/blog/[slug]/page.js
 export default function BlogPost({ params }) {
   return (
@@ -1795,14 +2153,17 @@ export default function DocsPage({ params }) {
   const slug = params.slug || [];
   return &lt;div&gt;Docs: {slug.join('/') || 'Home'}&lt;/div&gt;;
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>2.5 Layouts</h3>
-            <p>Layouts are UI that wrap pages and preserve state during navigation.</p>
+      <div class="page">
+        <h3>2.5 Layouts</h3>
+        <p>
+          Layouts are UI that wrap pages and preserve state during navigation.
+        </p>
 
-<pre>
+        <pre>
 // app/layout.js (Root Layout - Required)
 export default function RootLayout({ children }) {
   return (
@@ -1856,10 +2217,11 @@ export default async function ProfileLayout({ children }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>2.6 Loading UI</h3>
-<pre>
+        <h3>2.6 Loading UI</h3>
+        <pre>
 // app/blog/loading.js
 export default function Loading() {
   return (
@@ -1887,10 +2249,11 @@ export default function DashboardLoading() {
 // &lt;Suspense fallback={&lt;Loading /&gt;}&gt;
 //   &lt;Page /&gt;
 // &lt;/Suspense&gt;
-</pre>
+</pre
+        >
 
-            <h3>2.7 Error Handling</h3>
-<pre>
+        <h3>2.7 Error Handling</h3>
+        <pre>
 // app/error.js
 'use client'; // Error components must be Client Components
 
@@ -1934,38 +2297,42 @@ export default function NotFound() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h2>3. Server Components</h2>
-            <p>React Server Components (RSC) are the default in the App Router. They run on the server and can directly access backend resources.</p>
+        <h2 id="next-server-components">3. Server Components</h2>
+        <p>
+          React Server Components (RSC) are the default in the App Router. They
+          run on the server and can directly access backend resources.
+        </p>
 
-            <h3>3.1 Server vs Client Components</h3>
-            <div class="example">
-                <h4>Server Components (Default):</h4>
-                <ul>
-                    <li>Fetch data on the server</li>
-                    <li>Access backend resources directly</li>
-                    <li>Keep sensitive information on server (API keys, tokens)</li>
-                    <li>Reduce client-side JavaScript</li>
-                    <li>Cannot use hooks (useState, useEffect)</li>
-                    <li>Cannot use browser APIs</li>
-                    <li>Cannot use event handlers</li>
-                </ul>
+        <h3>3.1 Server vs Client Components</h3>
+        <div class="example">
+          <h4>Server Components (Default):</h4>
+          <ul>
+            <li>Fetch data on the server</li>
+            <li>Access backend resources directly</li>
+            <li>Keep sensitive information on server (API keys, tokens)</li>
+            <li>Reduce client-side JavaScript</li>
+            <li>Cannot use hooks (useState, useEffect)</li>
+            <li>Cannot use browser APIs</li>
+            <li>Cannot use event handlers</li>
+          </ul>
 
-                <h4>Client Components ('use client'):</h4>
-                <ul>
-                    <li>Add interactivity (event handlers)</li>
-                    <li>Use State and Lifecycle Hooks</li>
-                    <li>Use browser APIs</li>
-                    <li>Use custom hooks</li>
-                    <li>Use Context</li>
-                </ul>
-            </div>
+          <h4>Client Components ('use client'):</h4>
+          <ul>
+            <li>Add interactivity (event handlers)</li>
+            <li>Use State and Lifecycle Hooks</li>
+            <li>Use browser APIs</li>
+            <li>Use custom hooks</li>
+            <li>Use Context</li>
+          </ul>
         </div>
+      </div>
 
-        <div class="page">
-            <h3>3.2 Server Component Examples</h3>
-<pre>
+      <div class="page">
+        <h3>3.2 Server Component Examples</h3>
+        <pre>
 // app/products/page.js (Server Component)
 async function getProducts() {
   // Direct database access - no API route needed
@@ -2013,10 +2380,11 @@ export default async function ProfilePage() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>3.3 Client Component Examples</h3>
-<pre>
+        <h3>3.3 Client Component Examples</h3>
+        <pre>
 // components/Counter.js
 'use client'; // This directive marks it as a Client Component
 
@@ -2062,10 +2430,11 @@ export default function SearchBar() {
     &lt;/form&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>3.4 Composing Server and Client Components</h3>
-<pre>
+        <h3>3.4 Composing Server and Client Components</h3>
+        <pre>
 // app/page.js (Server Component)
 import ClientComponent from './ClientComponent';
 import ServerComponent from './ServerComponent';
@@ -2105,24 +2474,36 @@ export default function ClientWrapper({ children }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <div class="key-point">
-                <h4>Important Rules:</h4>
-                <ul>
-                    <li>You cannot import Server Components into Client Components directly</li>
-                    <li>You CAN pass Server Components as children/props to Client Components</li>
-                    <li>Once you use 'use client', all imported components become Client Components</li>
-                    <li>Keep Client Components at the leaves of your component tree</li>
-                </ul>
-            </div>
+        <div class="key-point">
+          <h4>Important Rules:</h4>
+          <ul>
+            <li>
+              You cannot import Server Components into Client Components
+              directly
+            </li>
+            <li>
+              You CAN pass Server Components as children/props to Client
+              Components
+            </li>
+            <li>
+              Once you use 'use client', all imported components become Client
+              Components
+            </li>
+            <li>Keep Client Components at the leaves of your component tree</li>
+          </ul>
+        </div>
 
-            <h2>4. Data Fetching</h2>
+        <h2 id="next-data-fetching">4. Data Fetching</h2>
 
-            <h3>4.1 Async Components</h3>
-            <p>Server Components can be async, making data fetching straightforward.</p>
+        <h3>4.1 Async Components</h3>
+        <p>
+          Server Components can be async, making data fetching straightforward.
+        </p>
 
-<pre>
+        <pre>
 // app/posts/page.js
 async function getPosts() {
   const res = await fetch('https://api.example.com/posts', {
@@ -2151,12 +2532,13 @@ export default async function PostsPage() {
     &lt;/div&gt;
   );
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>4.2 Streaming with Suspense</h3>
-<pre>
+      <div class="page">
+        <h3>4.2 Streaming with Suspense</h3>
+        <pre>
 // app/dashboard/page.js
 import { Suspense } from 'react';
 
@@ -2210,10 +2592,11 @@ function CardSkeleton() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>4.3 Route Handlers (API Routes)</h3>
-<pre>
+        <h3>4.3 Route Handlers (API Routes)</h3>
+        <pre>
 // app/api/users/route.js
 import { NextResponse } from 'next/server';
 
@@ -2267,12 +2650,16 @@ export async function DELETE(request, { params }) {
     { status: 200 }
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>4.4 Server Actions</h3>
-            <p>Server Actions allow you to run server code directly from Client Components.</p>
+        <h3>4.4 Server Actions</h3>
+        <p>
+          Server Actions allow you to run server code directly from Client
+          Components.
+        </p>
 
-<pre>
+        <pre>
 // app/actions.js
 'use server';
 
@@ -2366,25 +2753,36 @@ export default function PostForm() {
     &lt;/form&gt;
   );
 }
-</pre>
+</pre
+        >
+      </div>
+
+      <div class="page">
+        <h2 id="next-caching">5. Caching & Revalidation</h2>
+        <p>Next.js has four caching mechanisms to optimize performance.</p>
+
+        <h3>5.1 Caching Mechanisms</h3>
+        <div class="example">
+          <ol>
+            <li>
+              <strong>Request Memoization:</strong> Dedupe identical requests in
+              a single render pass
+            </li>
+            <li>
+              <strong>Data Cache:</strong> Persistent HTTP cache on the server
+            </li>
+            <li>
+              <strong>Full Route Cache:</strong> Pre-rendered HTML and RSC
+              payload
+            </li>
+            <li>
+              <strong>Router Cache:</strong> Client-side cache of RSC payload
+            </li>
+          </ol>
         </div>
 
-        <div class="page">
-            <h2>5. Caching & Revalidation</h2>
-            <p>Next.js has four caching mechanisms to optimize performance.</p>
-
-            <h3>5.1 Caching Mechanisms</h3>
-            <div class="example">
-                <ol>
-                    <li><strong>Request Memoization:</strong> Dedupe identical requests in a single render pass</li>
-                    <li><strong>Data Cache:</strong> Persistent HTTP cache on the server</li>
-                    <li><strong>Full Route Cache:</strong> Pre-rendered HTML and RSC payload</li>
-                    <li><strong>Router Cache:</strong> Client-side cache of RSC payload</li>
-                </ol>
-            </div>
-
-            <h3>5.2 Fetch Caching Options</h3>
-<pre>
+        <h3>5.2 Fetch Caching Options</h3>
+        <pre>
 // No caching - Always fetch fresh data
 fetch('https://api.example.com/data', {
   cache: 'no-store'
@@ -2412,10 +2810,11 @@ export default async function Page() {
   const data = await fetch('https://api.example.com/data');
   return &lt;div&gt;{/* ... */}&lt;/div&gt;;
 }
-</pre>
+</pre
+        >
 
-            <h3>5.3 On-Demand Revalidation</h3>
-<pre>
+        <h3>5.3 On-Demand Revalidation</h3>
+        <pre>
 // Revalidate by path
 import { revalidatePath } from 'next/cache';
 
@@ -2463,10 +2862,11 @@ fetch('https://api.example.com/posts/1', {
 // Revalidate multiple tags
 revalidateTag('posts');
 revalidateTag('post-1');
-</pre>
+</pre
+        >
 
-            <h3>5.4 Incremental Static Regeneration (ISR)</h3>
-<pre>
+        <h3>5.4 Incremental Static Regeneration (ISR)</h3>
+        <pre>
 // app/posts/[slug]/page.js
 
 // Generate static pages for these slugs at build time
@@ -2500,10 +2900,11 @@ export const dynamicParams = true; // or false
 
 // false: Return 404 for slugs not in generateStaticParams
 // true (default): Generate on-demand for new slugs
-</pre>
+</pre
+        >
 
-            <h3>5.5 Route Segment Config</h3>
-<pre>
+        <h3>5.5 Route Segment Config</h3>
+        <pre>
 // app/dashboard/page.js
 
 // Force dynamic rendering (no caching)
@@ -2540,14 +2941,15 @@ export const runtime = 'edge'; // Edge Runtime
 export const preferredRegion = 'auto'; // default
 export const preferredRegion = 'home';
 export const preferredRegion = ['iad1', 'sfo1']; // specific regions
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h2>6. Advanced Features</h2>
+      <div class="page">
+        <h2>6. Advanced Features</h2>
 
-            <h3>6.1 Metadata API</h3>
-<pre>
+        <h3>6.1 Metadata API</h3>
+        <pre>
 // Static metadata
 // app/page.js
 export const metadata = {
@@ -2616,12 +3018,16 @@ export async function generateMetadata({ params, searchParams }) {
     },
   };
 }
-</pre>
+</pre
+        >
 
-            <h3>6.2 Parallel Routes</h3>
-            <p>Parallel routes allow you to render multiple pages in the same layout simultaneously.</p>
+        <h3>6.2 Parallel Routes</h3>
+        <p>
+          Parallel routes allow you to render multiple pages in the same layout
+          simultaneously.
+        </p>
 
-<pre>
+        <pre>
 // Folder structure:
 // app/
 // ├── layout.js
@@ -2668,12 +3074,16 @@ export default function Layout({ children, team, analytics, isAdmin }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+        >
 
-            <h3>6.3 Intercepting Routes</h3>
-            <p>Intercepting routes allow you to load a route within the current layout while keeping the URL.</p>
+        <h3>6.3 Intercepting Routes</h3>
+        <p>
+          Intercepting routes allow you to load a route within the current
+          layout while keeping the URL.
+        </p>
 
-<pre>
+        <pre>
 // Folder structure:
 // app/
 // ├── feed/
@@ -2723,12 +3133,13 @@ export default function PhotoPage({ params }) {
 
 // When clicking link from feed: Opens modal
 // When refreshing /photo/1: Shows full page
-</pre>
+</pre
+        >
 
-            <h3>6.4 Route Groups</h3>
-            <p>Route groups organize routes without affecting the URL structure.</p>
+        <h3>6.4 Route Groups</h3>
+        <p>Route groups organize routes without affecting the URL structure.</p>
 
-<pre>
+        <pre>
 // Folder structure with route groups:
 // app/
 // ├── (marketing)/
@@ -2788,12 +3199,13 @@ export default function AdminLayout({ children }) {
     &lt;/html&gt;
   );
 }
-</pre>
-        </div>
+</pre
+        >
+      </div>
 
-        <div class="page">
-            <h3>6.5 Middleware</h3>
-<pre>
+      <div class="page">
+        <h3>6.5 Middleware</h3>
+        <pre>
 // middleware.js (root of project)
 import { NextResponse } from 'next/server';
 
@@ -2861,10 +3273,11 @@ export function middleware(request) {
   
   return NextResponse.next();
 }
-</pre>
+</pre
+        >
 
-            <h3>6.6 Image Optimization</h3>
-<pre>
+        <h3>6.6 Image Optimization</h3>
+        <pre>
 // next/image component
 import Image from 'next/image';
 
@@ -2931,51 +3344,68 @@ module.exports = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 };
-</pre>
+</pre
+        >
 
-            <h2>7. Next.js Interview Questions</h2>
+        <h2 id="next-interview">7. Next.js Interview Questions</h2>
 
-            <div class="question">
-                <h4>Q1: Explain the difference between Server Components and Client Components in Next.js App Router.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Server Components (Default):</strong></p>
-                <ul>
-                    <li>Run only on the server</li>
-                    <li>Can directly access backend resources (databases, file system)</li>
-                    <li>Can use async/await for data fetching</li>
-                    <li>Don't increase client-side JavaScript bundle</li>
-                    <li>Cannot use hooks (useState, useEffect) or browser APIs</li>
-                    <li>Cannot handle interactivity</li>
-                </ul>
-                
-                <p><strong>Client Components ('use client'):</strong></p>
-                <ul>
-                    <li>Run on both server (initial render) and client</li>
-                    <li>Can use React hooks and browser APIs</li>
-                    <li>Handle interactivity and event listeners</li>
-                    <li>Add to JavaScript bundle size</li>
-                    <li>Can use Context API</li>
-                </ul>
+        <div class="question">
+          <h4>
+            Q1: Explain the difference between Server Components and Client
+            Components in Next.js App Router.
+          </h4>
+        </div>
+        <div class="answer">
+          <p><strong>Server Components (Default):</strong></p>
+          <ul>
+            <li>Run only on the server</li>
+            <li>
+              Can directly access backend resources (databases, file system)
+            </li>
+            <li>Can use async/await for data fetching</li>
+            <li>Don't increase client-side JavaScript bundle</li>
+            <li>Cannot use hooks (useState, useEffect) or browser APIs</li>
+            <li>Cannot handle interactivity</li>
+          </ul>
 
-                <p><strong>Best Practice:</strong> Use Server Components by default, only add 'use client' when you need interactivity, hooks, or browser APIs. Push Client Components to the leaves of your component tree.</p>
-            </div>
+          <p><strong>Client Components ('use client'):</strong></p>
+          <ul>
+            <li>Run on both server (initial render) and client</li>
+            <li>Can use React hooks and browser APIs</li>
+            <li>Handle interactivity and event listeners</li>
+            <li>Add to JavaScript bundle size</li>
+            <li>Can use Context API</li>
+          </ul>
 
-            <div class="question">
-                <h4>Q2: How does caching work in Next.js App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Four caching layers:</strong></p>
-                
-                <p><strong>1. Request Memoization:</strong> Deduplicates identical fetch requests during a single render pass.</p>
-<pre>
+          <p>
+            <strong>Best Practice:</strong> Use Server Components by default,
+            only add 'use client' when you need interactivity, hooks, or browser
+            APIs. Push Client Components to the leaves of your component tree.
+          </p>
+        </div>
+
+        <div class="question">
+          <h4>Q2: How does caching work in Next.js App Router?</h4>
+        </div>
+        <div class="answer">
+          <p><strong>Four caching layers:</strong></p>
+
+          <p>
+            <strong>1. Request Memoization:</strong> Deduplicates identical
+            fetch requests during a single render pass.
+          </p>
+          <pre>
 // Both fetch the same data, but only one request is made
 const data1 = await fetch('https://api.example.com/data');
 const data2 = await fetch('https://api.example.com/data');
-</pre>
+</pre
+          >
 
-                <p><strong>2. Data Cache:</strong> Persistent HTTP cache on the server across requests and deployments.</p>
-<pre>
+          <p>
+            <strong>2. Data Cache:</strong> Persistent HTTP cache on the server
+            across requests and deployments.
+          </p>
+          <pre>
 // Cached indefinitely
 fetch('url', { cache: 'force-cache' });
 
@@ -2984,24 +3414,38 @@ fetch('url', { next: { revalidate: 60 } });
 
 // Never cache
 fetch('url', { cache: 'no-store' });
-</pre>
+</pre
+          >
 
-                <p><strong>3. Full Route Cache:</strong> Pre-rendered HTML and React Server Component payload stored on the server.</p>
-                
-                <p><strong>4. Router Cache:</strong> Client-side cache of RSC payload stored in browser memory during user session.</p>
+          <p>
+            <strong>3. Full Route Cache:</strong> Pre-rendered HTML and React
+            Server Component payload stored on the server.
+          </p>
 
-                <p><strong>Revalidation:</strong> Can be time-based or on-demand using revalidatePath() or revalidateTag().</p>
-            </div>
+          <p>
+            <strong>4. Router Cache:</strong> Client-side cache of RSC payload
+            stored in browser memory during user session.
+          </p>
+
+          <p>
+            <strong>Revalidation:</strong> Can be time-based or on-demand using
+            revalidatePath() or revalidateTag().
+          </p>
         </div>
+      </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q3: What are Server Actions and how do they work?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Server Actions are asynchronous functions that run on the server and can be called from Client or Server Components.</p>
+      <div class="page">
+        <div class="question">
+          <h4>Q3: What are Server Actions and how do they work?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Server Actions are asynchronous functions
+            that run on the server and can be called from Client or Server
+            Components.
+          </p>
 
-<pre>
+          <pre>
 // Define Server Action
 'use server';
 
@@ -3034,52 +3478,83 @@ function Form() {
   
   return &lt;form action={formAction}&gt;...&lt;/form&gt;;
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>No need to create API routes</li>
-                    <li>Progressive enhancement (works without JavaScript)</li>
-                    <li>Automatic serialization of data</li>
-                    <li>Type-safe with TypeScript</li>
-                    <li>Can revalidate cache and redirect</li>
-                </ul>
-            </div>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>No need to create API routes</li>
+            <li>Progressive enhancement (works without JavaScript)</li>
+            <li>Automatic serialization of data</li>
+            <li>Type-safe with TypeScript</li>
+            <li>Can revalidate cache and redirect</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q4: Explain the routing conventions in App Router.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Special Files:</strong></p>
-                <ul>
-                    <li><strong>page.js:</strong> Defines UI for a route, makes it publicly accessible</li>
-                    <li><strong>layout.js:</strong> Shared UI that wraps children, preserves state</li>
-                    <li><strong>template.js:</strong> Similar to layout but re-renders on navigation</li>
-                    <li><strong>loading.js:</strong> Loading UI with automatic Suspense boundary</li>
-                    <li><strong>error.js:</strong> Error UI with automatic Error boundary (must be Client Component)</li>
-                    <li><strong>not-found.js:</strong> UI for 404 errors</li>
-                    <li><strong>route.js:</strong> API endpoint (Route Handler)</li>
-                </ul>
+        <div class="question">
+          <h4>Q4: Explain the routing conventions in App Router.</h4>
+        </div>
+        <div class="answer">
+          <p><strong>Special Files:</strong></p>
+          <ul>
+            <li>
+              <strong>page.js:</strong> Defines UI for a route, makes it
+              publicly accessible
+            </li>
+            <li>
+              <strong>layout.js:</strong> Shared UI that wraps children,
+              preserves state
+            </li>
+            <li>
+              <strong>template.js:</strong> Similar to layout but re-renders on
+              navigation
+            </li>
+            <li>
+              <strong>loading.js:</strong> Loading UI with automatic Suspense
+              boundary
+            </li>
+            <li>
+              <strong>error.js:</strong> Error UI with automatic Error boundary
+              (must be Client Component)
+            </li>
+            <li><strong>not-found.js:</strong> UI for 404 errors</li>
+            <li><strong>route.js:</strong> API endpoint (Route Handler)</li>
+          </ul>
 
-                <p><strong>Dynamic Routes:</strong></p>
-<pre>
+          <p><strong>Dynamic Routes:</strong></p>
+          <pre>
 [slug]/page.js          // /blog/hello-world
 [...slug]/page.js       // /shop/a/b/c (catch-all)
 [[...slug]]/page.js     // /docs or /docs/a/b (optional catch-all)
-</pre>
+</pre
+          >
 
-                <p><strong>Route Groups:</strong> Organize routes without affecting URL using (folder)</p>
-                <p><strong>Parallel Routes:</strong> Render multiple pages simultaneously using @folder</p>
-                <p><strong>Intercepting Routes:</strong> Show route within current layout using (.)</p>
-            </div>
+          <p>
+            <strong>Route Groups:</strong> Organize routes without affecting URL
+            using (folder)
+          </p>
+          <p>
+            <strong>Parallel Routes:</strong> Render multiple pages
+            simultaneously using @folder
+          </p>
+          <p>
+            <strong>Intercepting Routes:</strong> Show route within current
+            layout using (.)
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q5: How does streaming work in Next.js App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Streaming allows you to progressively render UI from the server. Instead of waiting for all data to load before showing anything, you can stream content as it becomes available.</p>
+        <div class="question">
+          <h4>Q5: How does streaming work in Next.js App Router?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Streaming allows you to progressively
+            render UI from the server. Instead of waiting for all data to load
+            before showing anything, you can stream content as it becomes
+            available.
+          </p>
 
-<pre>
+          <pre>
 // Automatic with loading.js
 // app/dashboard/loading.js
 export default function Loading() {
@@ -3104,31 +3579,38 @@ export default function Page() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>Improved Time to First Byte (TTFB)</li>
-                    <li>Better perceived performance</li>
-                    <li>Independent loading of components</li>
-                    <li>Prioritize important content</li>
-                </ul>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Improved Time to First Byte (TTFB)</li>
+            <li>Better perceived performance</li>
+            <li>Independent loading of components</li>
+            <li>Prioritize important content</li>
+          </ul>
 
-                <p><strong>How it works:</strong> Server sends HTML in chunks. Browser can render and show content incrementally without waiting for entire response.</p>
-            </div>
+          <p>
+            <strong>How it works:</strong> Server sends HTML in chunks. Browser
+            can render and show content incrementally without waiting for entire
+            response.
+          </p>
+        </div>
 
-            <div class="question">
-                <h4>Q6: What is the difference between dynamic and static rendering?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Static Rendering (Default):</strong></p>
-                <ul>
-                    <li>Routes are rendered at build time or after revalidation</li>
-                    <li>Result is cached and can be served from CDN</li>
-                    <li>Best for content that doesn't change often</li>
-                </ul>
+        <div class="question">
+          <h4>
+            Q6: What is the difference between dynamic and static rendering?
+          </h4>
+        </div>
+        <div class="answer">
+          <p><strong>Static Rendering (Default):</strong></p>
+          <ul>
+            <li>Routes are rendered at build time or after revalidation</li>
+            <li>Result is cached and can be served from CDN</li>
+            <li>Best for content that doesn't change often</li>
+          </ul>
 
-<pre>
+          <pre>
 // Static by default
 export default async function Page() {
   const data = await fetch('https://api.example.com/data', {
@@ -3136,16 +3618,20 @@ export default async function Page() {
   });
   return &lt;div&gt;{/* ... */}&lt;/div&gt;;
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Dynamic Rendering:</strong></p>
-                <ul>
-                    <li>Routes are rendered at request time</li>
-                    <li>Can access request-specific information (cookies, headers, search params)</li>
-                    <li>Best for personalized or real-time content</li>
-                </ul>
+          <p><strong>Dynamic Rendering:</strong></p>
+          <ul>
+            <li>Routes are rendered at request time</li>
+            <li>
+              Can access request-specific information (cookies, headers, search
+              params)
+            </li>
+            <li>Best for personalized or real-time content</li>
+          </ul>
 
-<pre>
+          <pre>
 // Force dynamic
 export const dynamic = 'force-dynamic';
 
@@ -3157,20 +3643,28 @@ export default async function Page() {
   const theme = cookieStore.get('theme');
   // Now route is dynamic
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Next.js automatically chooses:</strong> Uses static by default, switches to dynamic if you use dynamic functions (cookies, headers, searchParams) or no-store cache.</p>
-            </div>
+          <p>
+            <strong>Next.js automatically chooses:</strong> Uses static by
+            default, switches to dynamic if you use dynamic functions (cookies,
+            headers, searchParams) or no-store cache.
+          </p>
         </div>
+      </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q7: Explain the Metadata API in Next.js.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> The Metadata API allows you to define metadata for SEO and social sharing in a type-safe way.</p>
+      <div class="page">
+        <div class="question">
+          <h4>Q7: Explain the Metadata API in Next.js.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> The Metadata API allows you to define
+            metadata for SEO and social sharing in a type-safe way.
+          </p>
 
-<pre>
+          <pre>
 // Static metadata
 export const metadata = {
   title: 'My Page',
@@ -3208,25 +3702,31 @@ export const metadata = {
 export const metadata = {
   title: 'About', // Becomes "About | My Site"
 };
-</pre>
+</pre
+          >
 
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>Type-safe metadata configuration</li>
-                    <li>Automatic optimization (deduplication)</li>
-                    <li>Supports all meta tags (Open Graph, Twitter, etc.)</li>
-                    <li>File-based metadata (favicon, robots.txt, sitemap.xml)</li>
-                </ul>
-            </div>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Type-safe metadata configuration</li>
+            <li>Automatic optimization (deduplication)</li>
+            <li>Supports all meta tags (Open Graph, Twitter, etc.)</li>
+            <li>File-based metadata (favicon, robots.txt, sitemap.xml)</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q8: How do you handle authentication in App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Authentication can be handled at multiple levels:</p>
+        <div class="question">
+          <h4>Q8: How do you handle authentication in App Router?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Authentication can be handled at multiple
+            levels:
+          </p>
 
-                <p><strong>1. Middleware (Recommended for route protection):</strong></p>
-<pre>
+          <p>
+            <strong>1. Middleware (Recommended for route protection):</strong>
+          </p>
+          <pre>
 // middleware.js
 import { NextResponse } from 'next/server';
 
@@ -3243,10 +3743,11 @@ export function middleware(request) {
 export const config = {
   matcher: '/dashboard/:path*',
 };
-</pre>
+</pre
+          >
 
-                <p><strong>2. Server Components (Data access control):</strong></p>
-<pre>
+          <p><strong>2. Server Components (Data access control):</strong></p>
+          <pre>
 // app/dashboard/page.js
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
@@ -3273,10 +3774,11 @@ export default async function Dashboard() {
   
   return &lt;div&gt;Welcome {user.name}&lt;/div&gt;;
 }
-</pre>
+</pre
+          >
 
-                <p><strong>3. Route Handlers (API protection):</strong></p>
-<pre>
+          <p><strong>3. Route Handlers (API protection):</strong></p>
+          <pre>
 // app/api/user/route.js
 import { cookies } from 'next/headers';
 
@@ -3292,41 +3794,56 @@ export async function GET() {
   const user = await verifyToken(token);
   return Response.json({ user });
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Best practices:</strong></p>
-                <ul>
-                    <li>Use httpOnly cookies for tokens</li>
-                    <li>Implement CSRF protection</li>
-                    <li>Use middleware for route-level protection</li>
-                    <li>Validate auth in Server Components for data access</li>
-                    <li>Consider using NextAuth.js for full auth solution</li>
-                </ul>
-            </div>
+          <p><strong>Best practices:</strong></p>
+          <ul>
+            <li>Use httpOnly cookies for tokens</li>
+            <li>Implement CSRF protection</li>
+            <li>Use middleware for route-level protection</li>
+            <li>Validate auth in Server Components for data access</li>
+            <li>Consider using NextAuth.js for full auth solution</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q9: What are the benefits of Server Components over traditional SSR?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Traditional SSR (Pages Router):</strong></p>
-                <ul>
-                    <li>Entire page is a single unit</li>
-                    <li>All data fetching happens in getServerSideProps</li>
-                    <li>All components become client-side after hydration</li>
-                    <li>Large JavaScript bundles</li>
-                </ul>
+        <div class="question">
+          <h4>
+            Q9: What are the benefits of Server Components over traditional SSR?
+          </h4>
+        </div>
+        <div class="answer">
+          <p><strong>Traditional SSR (Pages Router):</strong></p>
+          <ul>
+            <li>Entire page is a single unit</li>
+            <li>All data fetching happens in getServerSideProps</li>
+            <li>All components become client-side after hydration</li>
+            <li>Large JavaScript bundles</li>
+          </ul>
 
-                <p><strong>Server Components (App Router):</strong></p>
-                <ul>
-                    <li><strong>Zero bundle size:</strong> Server Components don't add to client JS bundle</li>
-                    <li><strong>Direct backend access:</strong> Can access databases, file system directly</li>
-                    <li><strong>Automatic code splitting:</strong> Each Server Component is a natural split point</li>
-                    <li><strong>Streaming:</strong> Can send UI progressively</li>
-                    <li><strong>No hydration cost:</strong> Server Components never hydrate</li>
-                    <li><strong>Colocation:</strong> Fetch data where you need it</li>
-                </ul>
+          <p><strong>Server Components (App Router):</strong></p>
+          <ul>
+            <li>
+              <strong>Zero bundle size:</strong> Server Components don't add to
+              client JS bundle
+            </li>
+            <li>
+              <strong>Direct backend access:</strong> Can access databases, file
+              system directly
+            </li>
+            <li>
+              <strong>Automatic code splitting:</strong> Each Server Component
+              is a natural split point
+            </li>
+            <li><strong>Streaming:</strong> Can send UI progressively</li>
+            <li>
+              <strong>No hydration cost:</strong> Server Components never
+              hydrate
+            </li>
+            <li><strong>Colocation:</strong> Fetch data where you need it</li>
+          </ul>
 
-<pre>
+          <pre>
 // Traditional SSR
 export async function getServerSideProps() {
   const data = await fetchData();
@@ -3344,19 +3861,23 @@ export default async function Page() {
   const data = await fetchData();
   return &lt;div&gt;{data}&lt;/div&gt;;
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Result:</strong> Faster page loads, smaller bundles, better performance, especially on low-powered devices.</p>
-            </div>
+          <p>
+            <strong>Result:</strong> Faster page loads, smaller bundles, better
+            performance, especially on low-powered devices.
+          </p>
         </div>
+      </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q10: How do you optimize performance in Next.js App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>1. Use Server Components by default:</strong></p>
-<pre>
+      <div class="page">
+        <div class="question">
+          <h4>Q10: How do you optimize performance in Next.js App Router?</h4>
+        </div>
+        <div class="answer">
+          <p><strong>1. Use Server Components by default:</strong></p>
+          <pre>
 // Keep Client Components at the leaves
 export default function Page() {
   return (
@@ -3372,10 +3893,11 @@ export default function Page() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>2. Implement proper caching:</strong></p>
-<pre>
+          <p><strong>2. Implement proper caching:</strong></p>
+          <pre>
 // Cache with revalidation
 fetch('url', { next: { revalidate: 3600 } });
 
@@ -3384,17 +3906,19 @@ fetch('url', { next: { tags: ['products'] } });
 
 // Then revalidate when needed
 revalidateTag('products');
-</pre>
+</pre
+          >
 
-                <p><strong>3. Use Streaming and Suspense:</strong></p>
-<pre>
+          <p><strong>3. Use Streaming and Suspense:</strong></p>
+          <pre>
 &lt;Suspense fallback={&lt;Skeleton /&gt;}&gt;
   &lt;SlowComponent /&gt;
 &lt;/Suspense&gt;
-</pre>
+</pre
+          >
 
-                <p><strong>4. Optimize images:</strong></p>
-<pre>
+          <p><strong>4. Optimize images:</strong></p>
+          <pre>
 &lt;Image
   src="/hero.jpg"
   alt="Hero"
@@ -3403,39 +3927,52 @@ revalidateTag('products');
   priority  // For above-the-fold images
   placeholder="blur"
 /&gt;
-</pre>
+</pre
+          >
 
-                <p><strong>5. Parallel data fetching:</strong></p>
-<pre>
+          <p><strong>5. Parallel data fetching:</strong></p>
+          <pre>
 // Fetch in parallel
 const [user, posts] = await Promise.all([
   getUser(),
   getPosts(),
 ]);
-</pre>
+</pre
+          >
 
-                <p><strong>6. Use loading.js for instant loading states</strong></p>
-                <p><strong>7. Implement Incremental Static Regeneration (ISR)</strong></p>
-                <p><strong>8. Use Route Handlers for API routes instead of external APIs</strong></p>
-                <p><strong>9. Enable compression in production</strong></p>
-                <p><strong>10. Monitor with Next.js Speed Insights</strong></p>
-            </div>
+          <p><strong>6. Use loading.js for instant loading states</strong></p>
+          <p>
+            <strong>7. Implement Incremental Static Regeneration (ISR)</strong>
+          </p>
+          <p>
+            <strong
+              >8. Use Route Handlers for API routes instead of external
+              APIs</strong
+            >
+          </p>
+          <p><strong>9. Enable compression in production</strong></p>
+          <p><strong>10. Monitor with Next.js Speed Insights</strong></p>
+        </div>
 
-            <div class="question">
-                <h4>Q11: Explain Partial Prerendering in Next.js.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> Partial Prerendering (PPR) is an experimental feature that combines static and dynamic rendering in a single route.</p>
+        <div class="question">
+          <h4>Q11: Explain Partial Prerendering in Next.js.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> Partial Prerendering (PPR) is an
+            experimental feature that combines static and dynamic rendering in a
+            single route.
+          </p>
 
-                <p><strong>How it works:</strong></p>
-                <ul>
-                    <li>Static shell is prerendered at build time</li>
-                    <li>Dynamic content is streamed in at runtime</li>
-                    <li>Uses Suspense boundaries to define dynamic sections</li>
-                    <li>Best of both worlds: fast initial load + dynamic content</li>
-                </ul>
+          <p><strong>How it works:</strong></p>
+          <ul>
+            <li>Static shell is prerendered at build time</li>
+            <li>Dynamic content is streamed in at runtime</li>
+            <li>Uses Suspense boundaries to define dynamic sections</li>
+            <li>Best of both worlds: fast initial load + dynamic content</li>
+          </ul>
 
-<pre>
+          <pre>
 // next.config.js
 const nextConfig = {
   experimental: {
@@ -3463,23 +4000,24 @@ export default function Page() {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>Fast initial page load (static shell)</li>
-                    <li>Can include personalized content</li>
-                    <li>Better Core Web Vitals</li>
-                    <li>Automatic optimization</li>
-                </ul>
-            </div>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Fast initial page load (static shell)</li>
+            <li>Can include personalized content</li>
+            <li>Better Core Web Vitals</li>
+            <li>Automatic optimization</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q12: How do you handle environment variables in App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Server-side (default):</strong></p>
-<pre>
+        <div class="question">
+          <h4>Q12: How do you handle environment variables in App Router?</h4>
+        </div>
+        <div class="answer">
+          <p><strong>Server-side (default):</strong></p>
+          <pre>
 // .env.local
 DATABASE_URL=postgres://...
 API_KEY=secret123
@@ -3489,10 +4027,11 @@ const db = await connect(process.env.DATABASE_URL);
 const data = await fetch('api', {
   headers: { 'X-API-Key': process.env.API_KEY }
 });
-</pre>
+</pre
+          >
 
-                <p><strong>Client-side (must prefix with NEXT_PUBLIC_):</strong></p>
-<pre>
+          <p><strong>Client-side (must prefix with NEXT_PUBLIC_):</strong></p>
+          <pre>
 // .env.local
 NEXT_PUBLIC_API_URL=https://api.example.com
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
@@ -3501,38 +4040,41 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 'use client';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-</pre>
+</pre
+          >
 
-                <p><strong>Environment-specific files:</strong></p>
-                <ul>
-                    <li>.env - All environments</li>
-                    <li>.env.local - Local overrides (gitignored)</li>
-                    <li>.env.development - Development only</li>
-                    <li>.env.production - Production only</li>
-                </ul>
+          <p><strong>Environment-specific files:</strong></p>
+          <ul>
+            <li>.env - All environments</li>
+            <li>.env.local - Local overrides (gitignored)</li>
+            <li>.env.development - Development only</li>
+            <li>.env.production - Production only</li>
+          </ul>
 
-                <p><strong>Best practices:</strong></p>
-                <ul>
-                    <li>Never commit .env.local</li>
-                    <li>Use NEXT_PUBLIC_ only for truly public values</li>
-                    <li>Keep secrets server-side</li>
-                    <li>Use different values per environment</li>
-                </ul>
-            </div>
+          <p><strong>Best practices:</strong></p>
+          <ul>
+            <li>Never commit .env.local</li>
+            <li>Use NEXT_PUBLIC_ only for truly public values</li>
+            <li>Keep secrets server-side</li>
+            <li>Use different values per environment</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q13: What is the difference between layout.js and template.js?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>layout.js:</strong></p>
-                <ul>
-                    <li>Preserves state across route changes</li>
-                    <li>Does not re-render on navigation</li>
-                    <li>Can be nested</li>
-                    <li>Use for persistent UI (nav, sidebar)</li>
-                </ul>
+        <div class="question">
+          <h4>
+            Q13: What is the difference between layout.js and template.js?
+          </h4>
+        </div>
+        <div class="answer">
+          <p><strong>layout.js:</strong></p>
+          <ul>
+            <li>Preserves state across route changes</li>
+            <li>Does not re-render on navigation</li>
+            <li>Can be nested</li>
+            <li>Use for persistent UI (nav, sidebar)</li>
+          </ul>
 
-<pre>
+          <pre>
 // app/layout.js
 export default function Layout({ children }) {
   // State is preserved during navigation
@@ -3543,17 +4085,18 @@ export default function Layout({ children }) {
     &lt;/div&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>template.js:</strong></p>
-                <ul>
-                    <li>Creates new instance on each navigation</li>
-                    <li>Does re-render and remount</li>
-                    <li>State is NOT preserved</li>
-                    <li>Use when you need fresh state or effects to run</li>
-                </ul>
+          <p><strong>template.js:</strong></p>
+          <ul>
+            <li>Creates new instance on each navigation</li>
+            <li>Does re-render and remount</li>
+            <li>State is NOT preserved</li>
+            <li>Use when you need fresh state or effects to run</li>
+          </ul>
 
-<pre>
+          <pre>
 // app/template.js
 export default function Template({ children }) {
   // Re-runs on every navigation
@@ -3563,23 +4106,26 @@ export default function Template({ children }) {
 
   return &lt;div&gt;{children}&lt;/div&gt;;
 }
-</pre>
+</pre
+          >
 
-                <p><strong>When to use template.js:</strong></p>
-                <ul>
-                    <li>CSS/JS animations on route change</li>
-                    <li>Analytics tracking per page view</li>
-                    <li>Features that rely on useEffect</li>
-                    <li>Reset state between routes</li>
-                </ul>
-            </div>
+          <p><strong>When to use template.js:</strong></p>
+          <ul>
+            <li>CSS/JS animations on route change</li>
+            <li>Analytics tracking per page view</li>
+            <li>Features that rely on useEffect</li>
+            <li>Reset state between routes</li>
+          </ul>
+        </div>
 
-            <div class="question">
-                <h4>Q14: How do you handle forms in Next.js App Router?</h4>
-            </div>
-            <div class="answer">
-                <p><strong>1. With Server Actions (Progressive Enhancement):</strong></p>
-<pre>
+        <div class="question">
+          <h4>Q14: How do you handle forms in Next.js App Router?</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>1. With Server Actions (Progressive Enhancement):</strong>
+          </p>
+          <pre>
 // app/actions.js
 'use server';
 
@@ -3611,10 +4157,11 @@ export default function NewPost() {
     &lt;/form&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>2. With Client-side validation:</strong></p>
-<pre>
+          <p><strong>2. With Client-side validation:</strong></p>
+          <pre>
 'use client';
 
 import { useFormState, useFormStatus } from 'react-dom';
@@ -3643,10 +4190,11 @@ export default function Form() {
     &lt;/form&gt;
   );
 }
-</pre>
+</pre
+          >
 
-                <p><strong>3. With Route Handlers (API approach):</strong></p>
-<pre>
+          <p><strong>3. With Route Handlers (API approach):</strong></p>
+          <pre>
 // app/api/posts/route.js
 export async function POST(request) {
   const body = await request.json();
@@ -3691,43 +4239,47 @@ export default function Form() {
   
   return &lt;form onSubmit={handleSubmit}&gt;...&lt;/form&gt;;
 }
-</pre>
-            </div>
+</pre
+          >
         </div>
+      </div>
 
-        <div class="page">
-            <div class="question">
-                <h4>Q15: Explain the concept of React Server Components payload.</h4>
-            </div>
-            <div class="answer">
-                <p><strong>Answer:</strong> The RSC payload is a special data format that Next.js uses to represent the rendered Server Components.</p>
+      <div class="page">
+        <div class="question">
+          <h4>Q15: Explain the concept of React Server Components payload.</h4>
+        </div>
+        <div class="answer">
+          <p>
+            <strong>Answer:</strong> The RSC payload is a special data format
+            that Next.js uses to represent the rendered Server Components.
+          </p>
 
-                <p><strong>What it contains:</strong></p>
-                <ul>
-                    <li>Rendered output of Server Components</li>
-                    <li>Placeholders for Client Components</li>
-                    <li>References to Client Component JavaScript chunks</li>
-                    <li>Props passed to Client Components</li>
-                </ul>
+          <p><strong>What it contains:</strong></p>
+          <ul>
+            <li>Rendered output of Server Components</li>
+            <li>Placeholders for Client Components</li>
+            <li>References to Client Component JavaScript chunks</li>
+            <li>Props passed to Client Components</li>
+          </ul>
 
-                <p><strong>How it works:</strong></p>
-                <ol>
-                    <li>Server renders Server Components to RSC payload</li>
-                    <li>Payload is streamed to the client</li>
-                    <li>Client reconstructs React tree using payload</li>
-                    <li>Client Components are hydrated with their JavaScript</li>
-                    <li>Server Component output is inserted as plain HTML</li>
-                </ol>
+          <p><strong>How it works:</strong></p>
+          <ol>
+            <li>Server renders Server Components to RSC payload</li>
+            <li>Payload is streamed to the client</li>
+            <li>Client reconstructs React tree using payload</li>
+            <li>Client Components are hydrated with their JavaScript</li>
+            <li>Server Component output is inserted as plain HTML</li>
+          </ol>
 
-                <p><strong>Benefits:</strong></p>
-                <ul>
-                    <li>Efficient wire format (smaller than HTML)</li>
-                    <li>Can be cached and reused</li>
-                    <li>Enables partial hydration</li>
-                    <li>Allows mixing server and client components</li>
-                </ul>
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Efficient wire format (smaller than HTML)</li>
+            <li>Can be cached and reused</li>
+            <li>Enables partial hydration</li>
+            <li>Allows mixing server and client components</li>
+          </ul>
 
-<pre>
+          <pre>
 // Example RSC Payload structure (simplified)
 [
   ["$", "div", null, {
@@ -3738,222 +4290,331 @@ export default function Form() {
     ]
   }]
 ]
-</pre>
-            </div>
-
-            <h2>8. Comparison: React vs Next.js</h2>
-
-            <div class="example">
-                <table style="width: 100%; border-collapse: collapse;">
-                    <tr>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">Aspect</th>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">React</th>
-                        <th style="border: 1px solid #ddd; padding: 8px; background: #f2f2f2;">Next.js App Router</th>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Type</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Library</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Full-stack Framework</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Rendering</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Client-side only</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Server + Client</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Routing</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Needs React Router</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Built-in file-based</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Data Fetching</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">useEffect + fetch</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">async components</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">SEO</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Poor (CSR)</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Excellent (SSR/SSG)</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">API Routes</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Need separate backend</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Built-in Route Handlers</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Image Optimization</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Manual</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Automatic with Image component</td>
-                    </tr>
-                    <tr>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Code Splitting</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">React.lazy</td>
-                        <td style="border: 1px solid #ddd; padding: 8px;">Automatic + React.lazy</td>
-                    </tr>
-                </table>
-            </div>
-
-            <h2>9. Best Practices Summary</h2>
-
-            <h3>React Best Practices:</h3>
-            <ul>
-                <li>Keep components small and focused</li>
-                <li>Use functional components with hooks</li>
-                <li>Avoid prop drilling - use Context or composition</li>
-                <li>Memoize expensive computations with useMemo</li>
-                <li>Use useCallback for functions passed to memoized children</li>
-                <li>Implement error boundaries for graceful error handling</li>
-                <li>Keep side effects in useEffect with proper dependencies</li>
-                <li>Use key prop correctly in lists</li>
-                <li>Avoid mutating state directly</li>
-                <li>Profile before optimizing</li>
-            </ul>
-
-            <h3>Next.js App Router Best Practices:</h3>
-            <ul>
-                <li>Use Server Components by default</li>
-                <li>Only use 'use client' when necessary</li>
-                <li>Fetch data where you need it</li>
-                <li>Implement proper caching strategies</li>
-                <li>Use loading.js for instant loading states</li>
-                <li>Implement error.js for error handling</li>
-                <li>Use Suspense for streaming</li>
-                <li>Optimize images with Next Image component</li>
-                <li>Use Server Actions for mutations</li>
-                <li>Implement proper metadata for SEO</li>
-                <li>Use middleware for edge-side logic</li>
-                <li>Keep Client Components at the leaves</li>
-            </ul>
-
-            <h2>10. Common Pitfalls to Avoid</h2>
-
-            <h3>React Pitfalls:</h3>
-            <ul>
-                <li>Forgetting dependency arrays in useEffect</li>
-                <li>Using index as key in dynamic lists</li>
-                <li>Mutating state directly</li>
-                <li>Creating components inside render functions</li>
-                <li>Not cleaning up side effects</li>
-                <li>Overusing Context</li>
-                <li>Premature optimization with memo/useMemo</li>
-            </ul>
-
-            <h3>Next.js Pitfalls:</h3>
-            <ul>
-                <li>Using Client Components when Server would work</li>
-                <li>Not understanding caching behavior</li>
-                <li>Fetching data in Client Components unnecessarily</li>
-                <li>Not implementing loading and error states</li>
-                <li>Exposing secrets in Client Components</li>
-                <li>Not using proper revalidation strategies</li>
-                <li>Importing Server Components into Client Components</li>
-            </ul>
+</pre
+          >
         </div>
 
-        <div class="page">
-            <h2>Conclusion</h2>
+        <h2>8. Comparison: React vs Next.js</h2>
 
-            <p>React and Next.js App Router represent the cutting edge of modern web development. React provides the foundation with its component-based architecture, hooks, and declarative programming model. Next.js builds on this foundation with Server Components, file-based routing, and built-in optimizations.</p>
-
-            <h3>When to Use React:</h3>
-            <ul>
-                <li>Building SPAs with complex client-side interactions</li>
-                <li>When you need full control over routing and architecture</li>
-                <li>When building component libraries</li>
-                <li>For applications that don't need SEO</li>
-            </ul>
-
-            <h3>When to Use Next.js App Router:</h3>
-            <ul>
-                <li>Building full-stack applications</li>
-                <li>When SEO is important</li>
-                <li>Content-heavy sites (blogs, e-commerce)</li>
-                <li>When you want automatic optimizations</li>
-                <li>When you need server-side logic</li>
-            </ul>
-
-            <h3>Key Takeaways:</h3>
-
-            <div class="key-point">
-                <h4>React Core Concepts:</h4>
-                <ul>
-                    <li>Components are the building blocks</li>
-                    <li>Props flow down, events flow up</li>
-                    <li>State triggers re-renders</li>
-                    <li>Hooks enable stateful functional components</li>
-                    <li>Virtual DOM optimizes updates</li>
-                </ul>
-            </div>
-
-            <div class="key-point">
-                <h4>Next.js App Router Fundamentals:</h4>
-                <ul>
-                    <li>Server Components by default</li>
-                    <li>File-system based routing</li>
-                    <li>Built-in data fetching and caching</li>
-                    <li>Streaming and Suspense for progressive rendering</li>
-                    <li>Server Actions for mutations</li>
-                    <li>Automatic optimizations out of the box</li>
-                </ul>
-            </div>
-
-            <h3>Learning Path:</h3>
-            <ol>
-                <li><strong>Master React Fundamentals:</strong> Components, props, state, hooks</li>
-                <li><strong>Understand React Patterns:</strong> Custom hooks, HOCs, render props, compound components</li>
-                <li><strong>Learn Performance Optimization:</strong> Memoization, code splitting, virtualization</li>
-                <li><strong>Explore Next.js Basics:</strong> Routing, layouts, data fetching</li>
-                <li><strong>Deep Dive into Server Components:</strong> Understand the paradigm shift</li>
-                <li><strong>Master Caching:</strong> Learn all four caching layers</li>
-                <li><strong>Build Real Projects:</strong> Apply concepts in production apps</li>
-            </ol>
-
-            <h3>Additional Resources:</h3>
-            <ul>
-                <li>React Official Documentation: <code>react.dev</code></li>
-                <li>Next.js Official Documentation: <code>nextjs.org/docs</code></li>
-                <li>React Server Components RFC</li>
-                <li>Next.js App Router Playground</li>
-                <li>Vercel Edge Network Documentation</li>
-            </ul>
-
-            <div style="text-align: center; margin-top: 60px; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 10px;">
-                <h2 style="color: white; border: none; margin: 0;">Happy Coding! 🚀</h2>
-                <p style="margin-top: 20px; font-size: 1.1em;">Master these concepts and you'll be well-equipped to build modern, performant web applications.</p>
-            </div>
+        <div class="example">
+          <table style="width: 100%; border-collapse: collapse">
+            <tr>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                Aspect
+              </th>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                React
+              </th>
+              <th
+                style="
+                  border: 1px solid #ddd;
+                  padding: 8px;
+                  background: #f2f2f2;
+                "
+              >
+                Next.js App Router
+              </th>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Type</td>
+              <td style="border: 1px solid #ddd; padding: 8px">Library</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Full-stack Framework
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Rendering</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Client-side only
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Server + Client
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">Routing</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Needs React Router
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Built-in file-based
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Data Fetching
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                useEffect + fetch
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                async components
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">SEO</td>
+              <td style="border: 1px solid #ddd; padding: 8px">Poor (CSR)</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Excellent (SSR/SSG)
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">API Routes</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Need separate backend
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Built-in Route Handlers
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Image Optimization
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">Manual</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Automatic with Image component
+              </td>
+            </tr>
+            <tr>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Code Splitting
+              </td>
+              <td style="border: 1px solid #ddd; padding: 8px">React.lazy</td>
+              <td style="border: 1px solid #ddd; padding: 8px">
+                Automatic + React.lazy
+              </td>
+            </tr>
+          </table>
         </div>
 
-        <div class="page" style="background: #f8f9fa;">
-            <h2 style="text-align: center; color: #667eea;">About This Guide</h2>
-            <p style="text-align: center; margin-top: 20px;">This comprehensive guide covers React.js and Next.js App Router concepts in depth, providing examples and interview questions to help you master modern web development.</p>
-            
-            <div style="margin-top: 40px; padding: 30px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <h3 style="color: #764ba2;">Topics Covered:</h3>
-                <ul style="line-height: 2;">
-                    <li>React Fundamentals & Core Concepts</li>
-                    <li>React Hooks (useState, useEffect, useContext, etc.)</li>
-                    <li>Advanced React Patterns</li>
-                    <li>Performance Optimization Techniques</li>
-                    <li>Next.js App Router Architecture</li>
-                    <li>Server Components vs Client Components</li>
-                    <li>Data Fetching & Caching Strategies</li>
-                    <li>Routing, Layouts & Special Files</li>
-                    <li>30+ Interview Questions with Detailed Answers</li>
-                </ul>
-            </div>
+        <h2>9. Best Practices Summary</h2>
 
-            <div style="margin-top: 40px; text-align: center;">
-                <p style="font-size: 0.9em; color: #666;">Created: November 2024</p>
-                <p style="font-size: 0.9em; color: #666;">For educational purposes</p>
-            </div>
+        <h3>React Best Practices:</h3>
+        <ul>
+          <li>Keep components small and focused</li>
+          <li>Use functional components with hooks</li>
+          <li>Avoid prop drilling - use Context or composition</li>
+          <li>Memoize expensive computations with useMemo</li>
+          <li>Use useCallback for functions passed to memoized children</li>
+          <li>Implement error boundaries for graceful error handling</li>
+          <li>Keep side effects in useEffect with proper dependencies</li>
+          <li>Use key prop correctly in lists</li>
+          <li>Avoid mutating state directly</li>
+          <li>Profile before optimizing</li>
+        </ul>
+
+        <h3>Next.js App Router Best Practices:</h3>
+        <ul>
+          <li>Use Server Components by default</li>
+          <li>Only use 'use client' when necessary</li>
+          <li>Fetch data where you need it</li>
+          <li>Implement proper caching strategies</li>
+          <li>Use loading.js for instant loading states</li>
+          <li>Implement error.js for error handling</li>
+          <li>Use Suspense for streaming</li>
+          <li>Optimize images with Next Image component</li>
+          <li>Use Server Actions for mutations</li>
+          <li>Implement proper metadata for SEO</li>
+          <li>Use middleware for edge-side logic</li>
+          <li>Keep Client Components at the leaves</li>
+        </ul>
+
+        <h2>10. Common Pitfalls to Avoid</h2>
+
+        <h3>React Pitfalls:</h3>
+        <ul>
+          <li>Forgetting dependency arrays in useEffect</li>
+          <li>Using index as key in dynamic lists</li>
+          <li>Mutating state directly</li>
+          <li>Creating components inside render functions</li>
+          <li>Not cleaning up side effects</li>
+          <li>Overusing Context</li>
+          <li>Premature optimization with memo/useMemo</li>
+        </ul>
+
+        <h3>Next.js Pitfalls:</h3>
+        <ul>
+          <li>Using Client Components when Server would work</li>
+          <li>Not understanding caching behavior</li>
+          <li>Fetching data in Client Components unnecessarily</li>
+          <li>Not implementing loading and error states</li>
+          <li>Exposing secrets in Client Components</li>
+          <li>Not using proper revalidation strategies</li>
+          <li>Importing Server Components into Client Components</li>
+        </ul>
+      </div>
+
+      <div class="page">
+        <h2>Conclusion</h2>
+
+        <p>
+          React and Next.js App Router represent the cutting edge of modern web
+          development. React provides the foundation with its component-based
+          architecture, hooks, and declarative programming model. Next.js builds
+          on this foundation with Server Components, file-based routing, and
+          built-in optimizations.
+        </p>
+
+        <h3>When to Use React:</h3>
+        <ul>
+          <li>Building SPAs with complex client-side interactions</li>
+          <li>When you need full control over routing and architecture</li>
+          <li>When building component libraries</li>
+          <li>For applications that don't need SEO</li>
+        </ul>
+
+        <h3>When to Use Next.js App Router:</h3>
+        <ul>
+          <li>Building full-stack applications</li>
+          <li>When SEO is important</li>
+          <li>Content-heavy sites (blogs, e-commerce)</li>
+          <li>When you want automatic optimizations</li>
+          <li>When you need server-side logic</li>
+        </ul>
+
+        <h3>Key Takeaways:</h3>
+
+        <div class="key-point">
+          <h4>React Core Concepts:</h4>
+          <ul>
+            <li>Components are the building blocks</li>
+            <li>Props flow down, events flow up</li>
+            <li>State triggers re-renders</li>
+            <li>Hooks enable stateful functional components</li>
+            <li>Virtual DOM optimizes updates</li>
+          </ul>
         </div>
+
+        <div class="key-point">
+          <h4>Next.js App Router Fundamentals:</h4>
+          <ul>
+            <li>Server Components by default</li>
+            <li>File-system based routing</li>
+            <li>Built-in data fetching and caching</li>
+            <li>Streaming and Suspense for progressive rendering</li>
+            <li>Server Actions for mutations</li>
+            <li>Automatic optimizations out of the box</li>
+          </ul>
+        </div>
+
+        <h3>Learning Path:</h3>
+        <ol>
+          <li>
+            <strong>Master React Fundamentals:</strong> Components, props,
+            state, hooks
+          </li>
+          <li>
+            <strong>Understand React Patterns:</strong> Custom hooks, HOCs,
+            render props, compound components
+          </li>
+          <li>
+            <strong>Learn Performance Optimization:</strong> Memoization, code
+            splitting, virtualization
+          </li>
+          <li>
+            <strong>Explore Next.js Basics:</strong> Routing, layouts, data
+            fetching
+          </li>
+          <li>
+            <strong>Deep Dive into Server Components:</strong> Understand the
+            paradigm shift
+          </li>
+          <li>
+            <strong>Master Caching:</strong> Learn all four caching layers
+          </li>
+          <li>
+            <strong>Build Real Projects:</strong> Apply concepts in production
+            apps
+          </li>
+        </ol>
+
+        <h3>Additional Resources:</h3>
+        <ul>
+          <li>React Official Documentation: <code>react.dev</code></li>
+          <li>Next.js Official Documentation: <code>nextjs.org/docs</code></li>
+          <li>React Server Components RFC</li>
+          <li>Next.js App Router Playground</li>
+          <li>Vercel Edge Network Documentation</li>
+        </ul>
+
+        <div
+          style="
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+          "
+        >
+          <h2 style="color: white; border: none; margin: 0">
+            Happy Coding! 🚀
+          </h2>
+          <p style="margin-top: 20px; font-size: 1.1em">
+            Master these concepts and you'll be well-equipped to build modern,
+            performant web applications.
+          </p>
+        </div>
+      </div>
+
+      <div class="page" style="background: #f8f9fa">
+        <h2 style="text-align: center; color: #667eea">About This Guide</h2>
+        <p style="text-align: center; margin-top: 20px">
+          This comprehensive guide covers React.js and Next.js App Router
+          concepts in depth, providing examples and interview questions to help
+          you master modern web development.
+        </p>
+
+        <div
+          style="
+            margin-top: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          "
+        >
+          <h3 style="color: #764ba2">Topics Covered:</h3>
+          <ul style="line-height: 2">
+            <li>React Fundamentals & Core Concepts</li>
+            <li>React Hooks (useState, useEffect, useContext, etc.)</li>
+            <li>Advanced React Patterns</li>
+            <li>Performance Optimization Techniques</li>
+            <li>Next.js App Router Architecture</li>
+            <li>Server Components vs Client Components</li>
+            <li>Data Fetching & Caching Strategies</li>
+            <li>Routing, Layouts & Special Files</li>
+            <li>30+ Interview Questions with Detailed Answers</li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 40px; text-align: center">
+          <p style="font-size: 0.9em; color: #666">Created: November 2024</p>
+          <p style="font-size: 0.9em; color: #666">For educational purposes</p>
+        </div>
+      </div>
     </div>
 
     <script>
-        // Print functionality
-        document.querySelector('.export-btn').addEventListener('click', function() {
-            window.print();
+      // Print functionality
+      document
+        .querySelector(".export-btn")
+        .addEventListener("click", function () {
+          window.print();
         });
     </script>
-</body>
+  </body>
 </html>
